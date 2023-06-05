@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40EE9EC82A2E93F40053C75C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC72A2E93F40053C75C /* RegistrationView.swift */; };
+		40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC92A2E9A190053C75C /* InputField.swift */; };
+		40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECB2A2E9D930053C75C /* Playground.swift */; };
+		40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */; };
+		40EE9ED02A2EA0D30053C75C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECF2A2EA0D30053C75C /* CustomButton.swift */; };
 		CC4CC6532A2B12170031DA9C /* MobileAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4CC6522A2B12170031DA9C /* MobileAppApp.swift */; };
 		CC4CC6552A2B12170031DA9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4CC6542A2B12170031DA9C /* ContentView.swift */; };
 		CC4CC6572A2B12180031DA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC4CC6562A2B12180031DA9C /* Assets.xcassets */; };
@@ -14,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40EE9EC72A2E93F40053C75C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		40EE9EC92A2E9A190053C75C /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		40EE9ECB2A2E9D930053C75C /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundRoundedRectangle.swift; sourceTree = "<group>"; };
+		40EE9ECF2A2EA0D30053C75C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CC4CC64F2A2B12170031DA9C /* MobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4CC6522A2B12170031DA9C /* MobileAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAppApp.swift; sourceTree = "<group>"; };
 		CC4CC6542A2B12170031DA9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +42,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40EE9ED12A2EA1270053C75C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC4CC6542A2B12170031DA9C /* ContentView.swift */,
+				40EE9EC72A2E93F40053C75C /* RegistrationView.swift */,
+				40EE9ED22A2EA13E0053C75C /* Helpers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40EE9ED22A2EA13E0053C75C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				40EE9ECF2A2EA0D30053C75C /* CustomButton.swift */,
+				40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */,
+				40EE9EC92A2E9A190053C75C /* InputField.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		CC4CC6462A2B12170031DA9C = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				CC4CC6522A2B12170031DA9C /* MobileAppApp.swift */,
-				CC4CC6542A2B12170031DA9C /* ContentView.swift */,
+				40EE9ED12A2EA1270053C75C /* Views */,
+				40EE9ECB2A2E9D930053C75C /* Playground.swift */,
 				CC4CC6562A2B12180031DA9C /* Assets.xcassets */,
 				CC4CC6582A2B12180031DA9C /* Preview Content */,
 			);
@@ -137,8 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40EE9EC82A2E93F40053C75C /* RegistrationView.swift in Sources */,
+				40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */,
 				CC4CC6552A2B12170031DA9C /* ContentView.swift in Sources */,
 				CC4CC6532A2B12170031DA9C /* MobileAppApp.swift in Sources */,
+				40EE9ED02A2EA0D30053C75C /* CustomButton.swift in Sources */,
+				40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */,
+				40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
