@@ -40,6 +40,7 @@ struct RegistrationView: View {
                         Button("Sign Up") {
                             //do smth
                         }
+                        .buttonStyle(CustomButton())
                         .background(Color.green)
                         
 //                        CustomButton(text: "Sign Up", backGroundColor: Color.green)

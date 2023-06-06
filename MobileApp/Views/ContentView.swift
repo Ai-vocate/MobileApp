@@ -35,6 +35,7 @@ struct ContentView: View {
                         Button("Sign In") {
                             //do smth
                         }
+                        .buttonStyle(CustomButton())
                         .background(Color.green)
                         
 //                        CustomButton(text: "Sign In", backGroundColor: Color.green)
@@ -46,11 +47,13 @@ struct ContentView: View {
                 Button("Sign Up") {
                     showRegisterPage.toggle()
                 }
+                .buttonStyle(CustomButton())
                 .background(Color.clear)
                 
                 Button("Guest") {
                     //do smth
                 }
+                .buttonStyle(CustomButton())
                 .background(Color.clear)
 //                CustomButton(text: "Sign Up", backGroundColor: Color.clear) {
 //                    showRegisterPage.toggle()
