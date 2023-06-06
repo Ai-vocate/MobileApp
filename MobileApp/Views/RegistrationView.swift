@@ -38,7 +38,7 @@ struct RegistrationView: View {
                         InputField(placeHolder: "Password", stateVar: password)
                         
                         CustomButton(text: "Sign Up", backGroundColor: Color.green) {
-                            
+                            // TODO: sign up action.
                         }
                         Spacer()
                     }

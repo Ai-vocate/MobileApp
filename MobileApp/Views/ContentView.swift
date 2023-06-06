@@ -32,14 +32,8 @@ struct ContentView: View {
                         
                         InputField(placeHolder: "Password", stateVar: password)
                         
-//                        Button("Sign In") {
-//                            //do smth
-//                        }
-//                        .buttonStyle(CustomButton())
-//                        .background(Color.green)
-                        
                         CustomButton(text: "Sign In", backGroundColor: Color.green) {
-                            
+                            // TODO: authenticate and sign in action
                         }
                         Spacer()
                     }
@@ -51,7 +45,7 @@ struct ContentView: View {
                 }
                 
                 CustomButton(text: "Guest", backGroundColor: Color.clear) {
-                    
+                    // TODO: guest sign in
                 }
                 
             }.padding(.all)
