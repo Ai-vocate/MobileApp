@@ -26,7 +26,7 @@ struct RegistrationView: View {
                         Text("Registration")
                             .font(.title)
                             .foregroundColor(Color.white)
-
+                        
                         InputField(placeHolder: "Phone Number", stateVar: phoneNumber)
                         
                         InputField(placeHolder: "Username", stateVar: username)
@@ -37,13 +37,9 @@ struct RegistrationView: View {
                         }
                         InputField(placeHolder: "Password", stateVar: password)
                         
-                        Button("Sign Up") {
-                            //do smth
+                        CustomButton(text: "Sign Up", backGroundColor: Color.green) {
+                            
                         }
-                        .buttonStyle(CustomButton())
-                        .background(Color.green)
-                        
-//                        CustomButton(text: "Sign Up", backGroundColor: Color.green)
                         Spacer()
                     }
                         .padding(.all, 55)

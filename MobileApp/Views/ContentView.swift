@@ -32,33 +32,28 @@ struct ContentView: View {
                         
                         InputField(placeHolder: "Password", stateVar: password)
                         
-                        Button("Sign In") {
-                            //do smth
-                        }
-                        .buttonStyle(CustomButton())
-                        .background(Color.green)
+//                        Button("Sign In") {
+//                            //do smth
+//                        }
+//                        .buttonStyle(CustomButton())
+//                        .background(Color.green)
                         
-//                        CustomButton(text: "Sign In", backGroundColor: Color.green)
+                        CustomButton(text: "Sign In", backGroundColor: Color.green) {
+                            
+                        }
                         Spacer()
                     }
                         .padding(.all, 55)
                 )
             VStack(spacing: 25) {
-                Button("Sign Up") {
+                CustomButton(text: "Sign Up", backGroundColor: Color.clear) {
                     showRegisterPage.toggle()
                 }
-                .buttonStyle(CustomButton())
-                .background(Color.clear)
                 
-                Button("Guest") {
-                    //do smth
+                CustomButton(text: "Guest", backGroundColor: Color.clear) {
+                    
                 }
-                .buttonStyle(CustomButton())
-                .background(Color.clear)
-//                CustomButton(text: "Sign Up", backGroundColor: Color.clear) {
-//                    showRegisterPage.toggle()
-//                }
-//                CustomButton(text: "Guest", backGroundColor: Color.clear)
+                
             }.padding(.all)
         }
         .navigate(to: RegistrationView(), when: $showRegisterPage)
