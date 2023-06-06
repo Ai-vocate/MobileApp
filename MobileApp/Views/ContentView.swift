@@ -11,6 +11,9 @@ struct ContentView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     
+    @Environment(\.presentationMode) var presentation
+    @State var showRegisterPage = false
+    
     var body: some View {
         VStack {
             Image("aivocate logo")
@@ -29,16 +32,33 @@ struct ContentView: View {
                         
                         InputField(placeHolder: "Password", stateVar: password)
                         
-                        CustomButton(text: "Sign In", backGroundColor: Color.green)
+                        Button("Sign In") {
+                            //do smth
+                        }
+                        .background(Color.green)
+                        
+//                        CustomButton(text: "Sign In", backGroundColor: Color.green)
                         Spacer()
                     }
                         .padding(.all, 55)
                 )
             VStack(spacing: 25) {
-                CustomButton(text: "Sign Up", backGroundColor: Color.clear)
-                CustomButton(text: "Guest", backGroundColor: Color.clear)
+                Button("Sign Up") {
+                    showRegisterPage.toggle()
+                }
+                .background(Color.clear)
+                
+                Button("Guest") {
+                    //do smth
+                }
+                .background(Color.clear)
+//                CustomButton(text: "Sign Up", backGroundColor: Color.clear) {
+//                    showRegisterPage.toggle()
+//                }
+//                CustomButton(text: "Guest", backGroundColor: Color.clear)
             }.padding(.all)
         }
+        .navigate(to: RegistrationView(), when: $showRegisterPage)
     }
     
 }

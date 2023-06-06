@@ -37,7 +37,12 @@ struct RegistrationView: View {
                         }
                         InputField(placeHolder: "Password", stateVar: password)
                         
-                        CustomButton(text: "Sign Up", backGroundColor: Color.green)
+                        Button("Sign Up") {
+                            //do smth
+                        }
+                        .background(Color.green)
+                        
+//                        CustomButton(text: "Sign Up", backGroundColor: Color.green)
                         Spacer()
                     }
                         .padding(.all, 55)
