@@ -38,14 +38,16 @@ struct RegistrationView: View {
                             .font(.title)
                             .foregroundColor(Color.white)
                         
+                        HStack {
+                            InputField(placeHolder: "Name", stateVar: password)
+                            InputField(placeHolder: "Age", stateVar: password)
+                        }
+                        
                         InputField(placeHolder: "Phone Number", stateVar: phoneNumber)
                         
                         InputField(placeHolder: "Username", stateVar: username)
                         
-                        HStack {
-                            InputField(placeHolder: "...", stateVar: password)
-                            InputField(placeHolder: "...", stateVar: password)
-                        }
+                        
                         InputField(placeHolder: "Password", stateVar: password)
                         
                         CustomButton(text: "Sign Up", backGroundColor: Color.green) {
