@@ -12,6 +12,8 @@ struct RegistrationView: View {
     @State private var phoneNumber: String = ""
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var isValidLogin: Bool = false
+    @State private var isValidPassword: Bool = false
     
     @State var showLoginPage = false
     
@@ -53,6 +55,8 @@ struct RegistrationView: View {
                         CustomButton(text: "Sign Up", backGroundColor: Color.green) {
                             // TODO: sign up action.
                         }
+                        .disabled((isValidLogin && isValidPassword) == false)
+                        
                         Spacer()
                     }
                         .padding(.all, 55)
