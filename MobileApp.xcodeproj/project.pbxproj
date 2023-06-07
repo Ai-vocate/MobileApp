@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DE7BCD92A2F1DE900E470A3 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */; };
+		2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */; };
 		40EE9EC82A2E93F40053C75C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC72A2E93F40053C75C /* RegistrationView.swift */; };
 		40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC92A2E9A190053C75C /* InputField.swift */; };
 		40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECB2A2E9D930053C75C /* Playground.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		40EE9EC72A2E93F40053C75C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		40EE9EC92A2E9A190053C75C /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		40EE9ECB2A2E9D930053C75C /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */,
 				40EE9EC92A2E9A190053C75C /* InputField.swift */,
 				2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */,
+				2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */,
 				CC4CC6552A2B12170031DA9C /* ContentView.swift in Sources */,
 				CC4CC6532A2B12170031DA9C /* MobileAppApp.swift in Sources */,
+				2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */,
 				40EE9ED02A2EA0D30053C75C /* CustomButton.swift in Sources */,
 				40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */,
 				40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */,

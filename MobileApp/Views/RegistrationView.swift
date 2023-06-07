@@ -13,8 +13,19 @@ struct RegistrationView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     
+    @State var showLoginPage = false
+    
     var body: some View {
         VStack {
+            HStack {
+                BackButton() {
+                    showLoginPage.toggle()
+                }.padding(.all)
+                
+                Spacer()
+            }
+            
+            
             Image("aivocate logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -46,7 +57,9 @@ struct RegistrationView: View {
                 )
             Spacer()
         }
+        .navigate(to: ContentView(), when: $showLoginPage)
     }
+        
 }
 
 struct RegistrationView_Previews: PreviewProvider {
