@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @Environment(\.presentationMode) var presentation
     @State var showRegisterPage = false
+    @State var showChatPage = false
     
     var body: some View {
         VStack {
@@ -46,11 +47,13 @@ struct ContentView: View {
                 
                 CustomButton(text: "Guest", backGroundColor: Color.clear) {
                     // TODO: guest sign in
+                    showChatPage.toggle()
                 }
                 
             }.padding(.all)
         }
         .navigate(to: RegistrationView(), when: $showRegisterPage)
+        .navigate(to: ChatBotView(), when: $showChatPage)
     }
     
 }

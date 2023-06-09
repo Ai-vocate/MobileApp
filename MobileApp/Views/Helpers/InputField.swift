@@ -29,6 +29,6 @@ struct InputField: View {
 struct InputField_Previews: PreviewProvider {
     @State private static var username: String = ""
     static var previews: some View {
-        InputField(placeHolder: "Sign in", stateVar: self.username)
+        InputField(placeHolder: "Sign in", stateVar: self.username).background(.black)
     }
 }
