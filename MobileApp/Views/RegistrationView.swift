@@ -12,6 +12,7 @@ struct RegistrationView: View {
     @State private var name: String = ""
     @State private var age: String = ""
     @State private var phoneNumber: String = ""
+    @State private var email: String = ""
 //    @State private var username: String = ""
 //    @State private var password: String = ""
 //    @State private var confirmPassword: String = ""
@@ -51,6 +52,8 @@ struct RegistrationView: View {
                         }
                         
                         InputField(placeHolder: "Phone Number", stateVar: phoneNumber, title: "Phone Number")
+                        
+                        InputField(placeHolder: "example@example.com", stateVar: email, title: "Email")
                         
 //                        InputField(placeHolder: "Username", stateVar: username, title: "Username")
 //

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D9F0F2E2A3463A5000E1A5A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F2D2A3463A5000E1A5A /* SignUpView.swift */; };
+		2D9F0F302A3474AD000E1A5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F2F2A3474AD000E1A5A /* HomeView.swift */; };
 		2DE7BCD92A2F1DE900E470A3 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */; };
 		2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */; };
 		2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		2D9F0F2D2A3463A5000E1A5A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		2D9F0F2F2A3474AD000E1A5A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				4090B3C02A32A670001443FA /* ChatBotView.swift */,
 				40EE9EC72A2E93F40053C75C /* RegistrationView.swift */,
 				2D9F0F2D2A3463A5000E1A5A /* SignUpView.swift */,
+				2D9F0F2F2A3474AD000E1A5A /* HomeView.swift */,
 				40EE9ED22A2EA13E0053C75C /* Helpers */,
 			);
 			path = Views;
@@ -208,6 +211,7 @@
 				40EE9EC82A2E93F40053C75C /* RegistrationView.swift in Sources */,
 				2DE7BCD92A2F1DE900E470A3 /* NavigationHelper.swift in Sources */,
 				4090B3C62A32A7DC001443FA /* APICaller.swift in Sources */,
+				2D9F0F302A3474AD000E1A5A /* HomeView.swift in Sources */,
 				40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */,
 				2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */,
 				CC4CC6552A2B12170031DA9C /* ContentView.swift in Sources */,

@@ -49,9 +49,9 @@ struct SignUpView: View {
                         InputField(placeHolder: "Username", stateVar: username, title: "Username")
                         
                         
-                        InputField(placeHolder: "Password", stateVar: password, title: "Password")
+                        InputField(placeHolder: "Password", stateVar: password, isSecureField: true, title: "Password")
                         
-                        InputField(placeHolder: "Confirm Password", stateVar: confirmPassword, title: "Confirm Password")
+                        InputField(placeHolder: "Confirm Password", stateVar: confirmPassword, isSecureField: true, title: "Confirm Password")
                         
                         CustomButton(text: "Sign Up", backGroundColor: Color.green) {
                             // TODO: sign up action.
