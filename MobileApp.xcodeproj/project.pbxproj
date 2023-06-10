@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D9F0F2E2A3463A5000E1A5A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F2D2A3463A5000E1A5A /* SignUpView.swift */; };
 		2DE7BCD92A2F1DE900E470A3 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */; };
 		2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */; };
 		2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D9F0F2D2A3463A5000E1A5A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				CC4CC6542A2B12170031DA9C /* ContentView.swift */,
 				4090B3C02A32A670001443FA /* ChatBotView.swift */,
 				40EE9EC72A2E93F40053C75C /* RegistrationView.swift */,
+				2D9F0F2D2A3463A5000E1A5A /* SignUpView.swift */,
 				40EE9ED22A2EA13E0053C75C /* Helpers */,
 			);
 			path = Views;
@@ -212,6 +215,7 @@
 				CC4CC6532A2B12170031DA9C /* MobileAppApp.swift in Sources */,
 				2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */,
 				40EE9ED02A2EA0D30053C75C /* CustomButton.swift in Sources */,
+				2D9F0F2E2A3463A5000E1A5A /* SignUpView.swift in Sources */,
 				40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */,
 				40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */,
 				2DE7BCE02A3054B800E470A3 /* User.swift in Sources */,
