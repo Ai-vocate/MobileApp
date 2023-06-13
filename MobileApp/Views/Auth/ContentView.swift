@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var username: String = ""
     @State private var password: String = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     
     @Environment(\.presentationMode) var presentation
     @State var showRegisterPage = false
@@ -35,6 +36,10 @@ struct ContentView: View {
                         
                         CustomButton(text: "Sign In", backGroundColor: Color.green) {
                             // TODO: authenticate and sign in action
+                            Task {
+                                try await viewModel.signIn(withEmail: username, password: password)
+                            }
+                            
                         }
                         Spacer()
                     }
