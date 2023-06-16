@@ -30,9 +30,9 @@ struct LogInView: View {
                             .font(.title)
                             .foregroundColor(Color.white)
                         
-                        InputField(placeHolder: "Username", stateVar: username, title: "Username").autocapitalization(.none)
+                        InputField(placeHolder: "Username", stateVar: $username, title: "Username").autocapitalization(.none)
                         
-                        InputField(placeHolder: "Password", stateVar: password, isSecureField: true, title: "Password").autocapitalization(.none)
+                        InputField(placeHolder: "Password", stateVar: $password, isSecureField: true, title: "Password").autocapitalization(.none)
                         
                         CustomButton(text: "Sign In", backGroundColor: Color.green) {
                             // TODO: authenticate and sign in action

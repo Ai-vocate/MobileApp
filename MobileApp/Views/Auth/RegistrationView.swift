@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct RegistrationView: View {
-    @State private var name: String = ""
+    @State private var fullname: String = ""
     @State private var age: String = ""
 //    @State private var phoneNumber: String = ""
     @State private var email: String = ""
@@ -55,17 +55,17 @@ struct RegistrationView: View {
 //                            .foregroundColor(Color.white)
                         
                         HStack {
-                            InputField(placeHolder: "Full Name", stateVar: name, title: "Name")
-                            InputField(placeHolder: "Age", stateVar: age, title: "Age")
+                            InputField(placeHolder: "Full Name", stateVar: $fullname, title: "Name")
+                            InputField(placeHolder: "Age", stateVar: $age, title: "Age")
                         }
                         
 //                        InputField(placeHolder: "Phone Number", stateVar: phoneNumber, title: "Phone Number")
                         
-                        InputField(placeHolder: "example@example.com", stateVar: email, title: "Email")
+                        InputField(placeHolder: "example@example.com", stateVar: $email, title: "Email")
                         
-                        InputField(placeHolder: "Password", stateVar: password, isSecureField: true, title: "Password")
+                        InputField(placeHolder: "Password", stateVar: $password, isSecureField: true, title: "Password")
                         
-                        InputField(placeHolder: "Confirm Password", stateVar: confirmPassword, isSecureField: true, title: "Confirm Password")
+                        InputField(placeHolder: "Confirm Password", stateVar: $confirmPassword, isSecureField: true, title: "Confirm Password")
                         
 
                         
@@ -76,7 +76,8 @@ struct RegistrationView: View {
                         CustomButton(text: "Sign Up", backGroundColor: Color.green) {
                             // TODO: sign up action.
                             Task {
-                                try await viewModel.createUser(withEmail: email, password: password, fullname: name, age: Int(age) ?? 0)
+                                print(password)
+                                try await viewModel.createUser(withEmail: email, password: password, fullname: fullname, age: Int(age) ?? 0)
                             }
                         }
 //                        .disabled((isValidLogin && isValidPassword) == false)

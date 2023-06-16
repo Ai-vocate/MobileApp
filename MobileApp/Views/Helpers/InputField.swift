@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct InputField: View {
-    var placeHolder: String
-    @State var stateVar: String
+    let placeHolder: String
+    @Binding var stateVar: String
     var isSecureField = false
-    var title: String
+    let title: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -19,7 +19,7 @@ struct InputField: View {
             
             if isSecureField {
                 SecureField(text: $stateVar, prompt: Text(placeHolder).foregroundColor(.white)) {
-                    Text("hi")
+//                    Text("hi")
                 }
                     .padding()
                     .background(.clear)
@@ -31,7 +31,7 @@ struct InputField: View {
                     .foregroundColor(.white)
             } else {
                 TextField(text: $stateVar, prompt: Text(placeHolder).foregroundColor(.white)) {
-                    Text("hi")
+//                    Text("hi")
                 }
                     .padding()
                     .background(.clear)
@@ -50,8 +50,8 @@ struct InputField: View {
 }
 
 struct InputField_Previews: PreviewProvider {
-    @State private static var username: String = ""
+//    @State private static var username: String = ""
     static var previews: some View {
-        InputField(placeHolder: "Sign in", stateVar: self.username, title: "Username").background(.black)
+        InputField(placeHolder: "Sign in", stateVar: .constant(""), title: "Username").background(.black)
     }
 }
