@@ -15,58 +15,60 @@ struct HomeView: View {
     
     
     var body: some View {
-        List {
-            Section {
-                HStack {
-                    Text(User.MOCK_USER.initials)
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .frame(width: 72, height: 72)
-                        .background(Color(.systemGray3))
-                    .clipShape(Circle())
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Welcome,")
-                        Text(User.MOCK_USER.fullname)
+        if let user = viewModel.currentUser {
+            List {
+                Section {
+                    HStack {
+                        Text(user.initials)
+                            .font(.title)
                             .fontWeight(.semibold)
-               
-                    }
-                    .padding(.leading, 10)
-                }
-            }
-            
-            Section {
-                
-                Button {
-                    print("settings...")
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "gear")
-                            .imageScale(.small)
-                            .font(.title)
-                            .foregroundColor(Color(.systemGray))
-                        Text("Settings")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
+                            .frame(width: 72, height: 72)
+                            .background(Color(.systemGray3))
+                        .clipShape(Circle())
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Welcome,")
+                            Text(user.fullname)
+                                .fontWeight(.semibold)
+                   
+                        }
+                        .padding(.leading, 10)
                     }
                 }
                 
-                Button {
-                    print("profile...")
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "person.circle")
-                            .imageScale(.small)
-                            .font(.title)
-                            .foregroundColor(Color(.systemGray))
-                        Text("Profile")
-                            .font(.subheadline)
-                            .foregroundColor(.black)
+                Section {
+                    
+                    Button {
+                        print("settings...")
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "gear")
+                                .imageScale(.small)
+                                .font(.title)
+                                .foregroundColor(Color(.systemGray))
+                            Text("Settings")
+                                .font(.subheadline)
+                                .foregroundColor(.black)
+                        }
                     }
+                    
+                    Button {
+                        print("profile...")
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "person.circle")
+                                .imageScale(.small)
+                                .font(.title)
+                                .foregroundColor(Color(.systemGray))
+                            Text("Profile")
+                                .font(.subheadline)
+                                .foregroundColor(.black)
+                        }
+                    }
+                    
+                    
                 }
-                
-                
             }
         }
     }
