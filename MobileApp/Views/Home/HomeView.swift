@@ -13,6 +13,8 @@ struct HomeView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
+    @State var showSettingsView = false
+    
     
     var body: some View {
         if let user = viewModel.currentUser {
@@ -41,6 +43,7 @@ struct HomeView: View {
                     
                     Button {
                         print("settings...")
+                        showSettingsView.toggle()
                     } label: {
                         HStack(spacing: 12) {
                             Image(systemName: "gear")
@@ -70,8 +73,11 @@ struct HomeView: View {
                     
                 }
             }
+            .navigate(to: SettingsView(), when: $showSettingsView)
         }
+            
     }
+        
 }
 
 struct HomeView_Previews: PreviewProvider {
