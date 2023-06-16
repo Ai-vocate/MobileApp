@@ -1,5 +1,4 @@
-#How to Run Mobile App on Xcode
-
+# How to Run Mobile App on Xcode
 ______________________
 
 Generate an OpenAI API key from https://platform.openai.com/account/api-keys
