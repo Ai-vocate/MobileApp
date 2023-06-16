@@ -25,17 +25,24 @@ struct LogInView: View {
             
             BackGroundRoundedRectangle()
                 .overlay(
-                    VStack(alignment: .leading, spacing: 25) {
+                    VStack(alignment: .leading, spacing: 24) {
                         Text("Login")
-                            .font(.title)
+                            .font(Font.custom("CarroisGothicSC-Regular", size: 45))
                             .foregroundColor(Color.white)
                         
-                        InputField(placeHolder: "Username", stateVar: $username, title: "Username").autocapitalization(.none)
+                        InputView(placeHolder: "Username",
+                                  stateVar: $username,
+                                  title: "Username")
+                        .autocapitalization(.none)
                         
-                        InputField(placeHolder: "Password", stateVar: $password, isSecureField: true, title: "Password").autocapitalization(.none)
+                        InputView(placeHolder: "Password",
+                                  stateVar: $password,
+                                  title: "Password",
+                                  isSecureField: true)
+                        .autocapitalization(.none)
                         
-                        CustomButton(text: "Sign In", backGroundColor: Color.green) {
-                            // TODO: authenticate and sign in action
+                        CustomButton(text: "Sign In",
+                                     backGroundColor: Color("Custom Green")) {
                             Task {
                                 try await viewModel.signIn(withEmail: username, password: password)
                             }

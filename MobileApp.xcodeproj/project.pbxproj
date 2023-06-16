@@ -22,11 +22,13 @@
 		2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */; };
 		2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */; };
 		2DE7BCE02A3054B800E470A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDF2A3054B800E470A3 /* User.swift */; };
+		4018DB9E2A3D1067004A344F /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4018DB942A3D1066004A344F /* Lato-Regular.ttf */; };
+		4033F4482A3D0560003927FB /* CarroisGothicSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4033F4472A3D055F003927FB /* CarroisGothicSC-Regular.ttf */; };
 		4090B3C12A32A670001443FA /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090B3C02A32A670001443FA /* ChatBotView.swift */; };
 		4090B3C42A32A778001443FA /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4090B3C32A32A778001443FA /* OpenAISwift */; };
 		4090B3C62A32A7DC001443FA /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4090B3C52A32A7DC001443FA /* APICaller.swift */; };
 		40EE9EC82A2E93F40053C75C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC72A2E93F40053C75C /* RegistrationView.swift */; };
-		40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC92A2E9A190053C75C /* InputField.swift */; };
+		40EE9ECA2A2E9A190053C75C /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9EC92A2E9A190053C75C /* InputView.swift */; };
 		40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECB2A2E9D930053C75C /* Playground.swift */; };
 		40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */; };
 		40EE9ED02A2EA0D30053C75C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE9ECF2A2EA0D30053C75C /* CustomButton.swift */; };
@@ -47,10 +49,13 @@
 		2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		2DE7BCDF2A3054B800E470A3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4018DB942A3D1066004A344F /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		4033F4472A3D055F003927FB /* CarroisGothicSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CarroisGothicSC-Regular.ttf"; sourceTree = "<group>"; };
+		4033F4492A3D06BF003927FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4090B3C02A32A670001443FA /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 		4090B3C52A32A7DC001443FA /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		40EE9EC72A2E93F40053C75C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		40EE9EC92A2E9A190053C75C /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		40EE9EC92A2E9A190053C75C /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		40EE9ECB2A2E9D930053C75C /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackGroundRoundedRectangle.swift; sourceTree = "<group>"; };
 		40EE9ECF2A2EA0D30053C75C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -108,28 +113,45 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4033F4452A3D0500003927FB /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				4033F4462A3D0505003927FB /* Fonts */,
+			);
+			path = Assests;
+			sourceTree = "<group>";
+		};
+		4033F4462A3D0505003927FB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4018DB942A3D1066004A344F /* Lato-Regular.ttf */,
+				4033F4472A3D055F003927FB /* CarroisGothicSC-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		40EE9ED12A2EA1270053C75C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2D9F0F432A3C54B7000E1A5A /* Home */,
 				2D9F0F3E2A38730B000E1A5A /* Auth */,
 				4090B3C02A32A670001443FA /* ChatBotView.swift */,
-				40EE9ED22A2EA13E0053C75C /* Helpers */,
+				40EE9ED22A2EA13E0053C75C /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		40EE9ED22A2EA13E0053C75C /* Helpers */ = {
+		40EE9ED22A2EA13E0053C75C /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				40EE9ECF2A2EA0D30053C75C /* CustomButton.swift */,
 				40EE9ECD2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift */,
-				40EE9EC92A2E9A190053C75C /* InputField.swift */,
+				40EE9EC92A2E9A190053C75C /* InputView.swift */,
 				2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */,
 				2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */,
 				2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */,
 			);
-			path = Helpers;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		CC4CC6462A2B12170031DA9C = {
@@ -151,6 +173,8 @@
 		CC4CC6512A2B12170031DA9C /* MobileApp */ = {
 			isa = PBXGroup;
 			children = (
+				4033F4492A3D06BF003927FB /* Info.plist */,
+				4033F4452A3D0500003927FB /* Assests */,
 				2D9F0F312A3865D5000E1A5A /* GoogleService-Info.plist */,
 				2DE7BCDE2A3054A500E470A3 /* Models */,
 				CC4CC6522A2B12170031DA9C /* MobileAppApp.swift */,
@@ -241,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC4CC65A2A2B12180031DA9C /* Preview Assets.xcassets in Resources */,
+				4033F4482A3D0560003927FB /* CarroisGothicSC-Regular.ttf in Resources */,
 				CC4CC6572A2B12180031DA9C /* Assets.xcassets in Resources */,
+				4018DB9E2A3D1067004A344F /* Lato-Regular.ttf in Resources */,
 				2D9F0F322A3865D5000E1A5A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +295,7 @@
 				2D9F0F2E2A3463A5000E1A5A /* SignUpView.swift in Sources */,
 				2D9F0F402A387D66000E1A5A /* AuthViewModel.swift in Sources */,
 				40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */,
-				40EE9ECA2A2E9A190053C75C /* InputField.swift in Sources */,
+				40EE9ECA2A2E9A190053C75C /* InputView.swift in Sources */,
 				2DE7BCE02A3054B800E470A3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +428,8 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MobileApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +460,8 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MobileApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

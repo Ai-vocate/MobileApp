@@ -55,17 +55,27 @@ struct RegistrationView: View {
 //                            .foregroundColor(Color.white)
                         
                         HStack {
-                            InputField(placeHolder: "Full Name", stateVar: $fullname, title: "Name")
-                            InputField(placeHolder: "Age", stateVar: $age, title: "Age")
+                            InputView(placeHolder: "Full Name",
+                                      stateVar: $fullname,
+                                      title: "Name")
+                            InputView(placeHolder: "Age",
+                                      stateVar: $age,
+                                      title: "Age")
                         }
                         
 //                        InputField(placeHolder: "Phone Number", stateVar: phoneNumber, title: "Phone Number")
                         
-                        InputField(placeHolder: "example@example.com", stateVar: $email, title: "Email")
+                        InputView(placeHolder: "example@example.com", stateVar: $email, title: "Email")
                         
-                        InputField(placeHolder: "Password", stateVar: $password, isSecureField: true, title: "Password")
+                        InputView(placeHolder: "Password",
+                                  stateVar: $password,
+                                  title: "Password",
+                                  isSecureField: true)
                         
-                        InputField(placeHolder: "Confirm Password", stateVar: $confirmPassword, isSecureField: true, title: "Confirm Password")
+                        InputView(placeHolder: "Confirm Password",
+                                  stateVar: $confirmPassword,
+                                  title: "Confirm Password",
+                                  isSecureField: true)
                         
 
                         

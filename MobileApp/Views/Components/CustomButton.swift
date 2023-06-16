@@ -15,12 +15,11 @@ struct CustomButton: View {
         Button(text) {
             action()
         }
-            .font(.headline)
+            .font(Font.custom("Lato-Regular", size: 15))
             .foregroundColor(.black)
-            .padding()
-            .frame(width: 150, height: 50)
+            .frame(width: 140, height: 40)
             .background(backGroundColor)
-            .cornerRadius(15.0)
+            .cornerRadius(17.0)
             .overlay(
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(Color.black, lineWidth: 2)
@@ -33,7 +32,7 @@ struct CustomButton: View {
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton(text: "Sign Up", backGroundColor: Color.clear) {
+        CustomButton(text: "Sign Up", backGroundColor: Color("Custom Green")) {
             
         }
     }
