@@ -14,6 +14,8 @@ struct ChatBotView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            
+            
             ForEach(models, id: \.self) { string in
                 Text(string)
             }

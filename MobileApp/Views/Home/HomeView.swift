@@ -42,7 +42,6 @@ struct HomeView: View {
                 Section {
                     
                     Button {
-                        print("settings...")
                         showSettingsView.toggle()
                     } label: {
                         HStack(spacing: 12) {
