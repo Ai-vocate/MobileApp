@@ -18,6 +18,8 @@ struct BackGroundRoundedRectangle: View {
 
 struct BackGroundRoundedRectangle_Previews: PreviewProvider {
     static var previews: some View {
-        BackGroundRoundedRectangle()
+        VStack {
+            BackGroundRoundedRectangle()
+        }
     }
 }

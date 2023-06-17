@@ -17,7 +17,7 @@ struct CustomButton: View {
         }
             .font(Font.custom("Lato-Regular", size: 15))
             .foregroundColor(.black)
-            .frame(width: 140, height: 40)
+            .frame(width: 140, height: 42)
             .background(backGroundColor)
             .cornerRadius(17.0)
             .overlay(
@@ -26,14 +26,12 @@ struct CustomButton: View {
             )
 
     }
-    let action: () -> Void
+    var action: () -> Void = {}
 }
 
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton(text: "Sign Up", backGroundColor: Color("Custom Green")) {
-            
-        }
+        CustomButton(text: "Sign Up", backGroundColor: Color("Custom Green"))
     }
 }

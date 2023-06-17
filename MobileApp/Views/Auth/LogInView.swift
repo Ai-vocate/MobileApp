@@ -13,18 +13,18 @@ struct LogInView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     @Environment(\.presentationMode) var presentation
-    @State var showRegisterPage = false
-    @State var showChatPage = false
     
     var body: some View {
-        VStack {
-            Image("aivocate logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(.all)
-            
-            BackGroundRoundedRectangle()
-                .overlay(
+        NavigationStack {
+            VStack {
+                // Image
+                Image("aivocate logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.all)
+                
+                
+                // Form Fields
                     VStack(alignment: .leading, spacing: 24) {
                         Text("Login")
                             .font(Font.custom("CarroisGothicSC-Regular", size: 45))
@@ -48,26 +48,28 @@ struct LogInView: View {
                             }
                             
                         }
-                        Spacer()
                     }
-                        .padding(.all, 55)
-                )
-            VStack(spacing: 25) {
-                CustomButton(text: "Sign Up", backGroundColor: Color.clear) {
-                    showRegisterPage.toggle()
-                }
+                    .padding(.all, 55)
+                    .background(BackGroundRoundedRectangle())
+                            
+                            
+                Spacer()
                 
-                CustomButton(text: "Guest", backGroundColor: Color.clear) {
-                    // TODO: guest sign in
-                    showChatPage.toggle()
+                //                 Signup/Guest Buttons
+                VStack {
+                    NavigationLinkView(desination: {
+                        RegistrationView()},
+                                       text: "Sign up",
+                                       backGroundColor: Color.clear)
+                    
+                    NavigationLinkView(desination: {
+                        ChatBotView()},
+                                       text: "Guest",
+                                       backGroundColor: Color.clear)
                 }
-                
-            }.padding(.all)
+            }
         }
-        .navigate(to: RegistrationView(), when: $showRegisterPage)
-        .navigate(to: ChatBotView(), when: $showChatPage)
     }
-    
 }
 
 struct LogInView_Previews: PreviewProvider {
@@ -75,5 +77,7 @@ struct LogInView_Previews: PreviewProvider {
         LogInView()
     }
 }
+
+
 
 
