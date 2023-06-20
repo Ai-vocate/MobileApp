@@ -22,14 +22,14 @@ struct SettingsView: View {
             List {
                 Section {
                     ZStack {
-                        HStack {
-                            BackButton() {
-                                showHomePage.toggle()
-                            }
-                            .padding(.trailing, 20)
-                            
-                            Spacer()
-                        }
+//                        HStack {
+//                            BackButton() {
+//                                showHomePage.toggle()
+//                            }
+//                            .padding(.trailing, 20)
+//                            
+//                            Spacer()
+//                        }
                         
                         HStack {
                             Text("Settings")
