@@ -22,6 +22,9 @@
 		2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */; };
 		2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */; };
 		2DE7BCE02A3054B800E470A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDF2A3054B800E470A3 /* User.swift */; };
+		3A125B572A431BBA00D8A4D4 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A125B562A431BBA00D8A4D4 /* HistoryView.swift */; };
+		3A125B592A43259400D8A4D4 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A125B582A43259400D8A4D4 /* TabBar.swift */; };
+		3A125B5B2A433B8500D8A4D4 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A125B5A2A433B8500D8A4D4 /* LandingView.swift */; };
 		4018DB9E2A3D1067004A344F /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4018DB942A3D1066004A344F /* Lato-Regular.ttf */; };
 		4033F4482A3D0560003927FB /* CarroisGothicSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4033F4472A3D055F003927FB /* CarroisGothicSC-Regular.ttf */; };
 		404884172A3D6D9C00C81B63 /* NavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404884162A3D6D9C00C81B63 /* NavigationLinkView.swift */; };
@@ -50,6 +53,9 @@
 		2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		2DE7BCDF2A3054B800E470A3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3A125B562A431BBA00D8A4D4 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		3A125B582A43259400D8A4D4 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3A125B5A2A433B8500D8A4D4 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		4018DB942A3D1066004A344F /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4033F4472A3D055F003927FB /* CarroisGothicSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CarroisGothicSC-Regular.ttf"; sourceTree = "<group>"; };
 		4033F4492A3D06BF003927FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			children = (
 				2D9F0F2F2A3474AD000E1A5A /* HomeView.swift */,
 				2D9F0F442A3C54C7000E1A5A /* SettingsView.swift */,
+				3A125B562A431BBA00D8A4D4 /* HistoryView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 		40EE9ED12A2EA1270053C75C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A125B5A2A433B8500D8A4D4 /* LandingView.swift */,
 				2D9F0F432A3C54B7000E1A5A /* Home */,
 				2D9F0F3E2A38730B000E1A5A /* Auth */,
 				4090B3C02A32A670001443FA /* ChatBotView.swift */,
@@ -153,6 +161,7 @@
 				2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */,
 				2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */,
 				404884162A3D6D9C00C81B63 /* NavigationLinkView.swift */,
+				3A125B582A43259400D8A4D4 /* TabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -288,6 +297,7 @@
 				2D9F0F452A3C54C7000E1A5A /* SettingsView.swift in Sources */,
 				4090B3C62A32A7DC001443FA /* APICaller.swift in Sources */,
 				2D9F0F302A3474AD000E1A5A /* HomeView.swift in Sources */,
+				3A125B592A43259400D8A4D4 /* TabBar.swift in Sources */,
 				40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */,
 				2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */,
 				CC4CC6552A2B12170031DA9C /* ContentView.swift in Sources */,
@@ -299,7 +309,9 @@
 				404884172A3D6D9C00C81B63 /* NavigationLinkView.swift in Sources */,
 				2D9F0F402A387D66000E1A5A /* AuthViewModel.swift in Sources */,
 				40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */,
+				3A125B572A431BBA00D8A4D4 /* HistoryView.swift in Sources */,
 				40EE9ECA2A2E9A190053C75C /* InputView.swift in Sources */,
+				3A125B5B2A433B8500D8A4D4 /* LandingView.swift in Sources */,
 				2DE7BCE02A3054B800E470A3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
