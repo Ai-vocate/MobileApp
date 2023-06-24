@@ -13,16 +13,15 @@ struct LandingView: View {
     
     var body: some View {
         TabView (selection: $selectedTab) {
-            Text("Home View")
-                .tag("house")
+            HomeView()
+            .tag("house")
             Text("Question")
                 .tag("questionmark")
             Text("Chat")
                 .tag("bubble.left.and.bubble.right")
             Text("History")
                 .tag("clock.arrow.circlepath")
-//            HomeView()
-//                .tag("house")
+            
 
         }
         .overlay(alignment: .bottom) {
