@@ -13,26 +13,33 @@ struct ChatBotView: View {
     @State var models = [String]()
 
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            
-            ForEach(models, id: \.self) { string in
-                Text(string)
-            }
-            
-            Spacer()
-            
-            HStack {
-                TextField("Type here...", text: $text)
-                Button("Send") {
-                    send()
+        Color.bg_green
+            .ignoresSafeArea()
+            .overlay(
+                VStack(alignment: .leading) {
+                    
+                    LogoHeader()
+                    
+                        
+                    
+                    ForEach(models, id: \.self) { string in
+                        Text(string)
+                    }
+                    
+                    Spacer()
+                    
+                    HStack {
+                        TextField("Type here...", text: $text)
+                        Button("Send") {
+                            send()
+                        }
+                    }
                 }
-            }
-        }
-        .onAppear {
-            viewModel.setup()
-        }
-        .padding()
+                .onAppear {
+                    viewModel.setup()
+                }
+//                .padding()
+            )
 
     }
     

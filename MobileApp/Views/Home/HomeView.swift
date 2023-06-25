@@ -19,9 +19,6 @@ struct HomeView: View {
     var body: some View {
         if let user = viewModel.currentUser {
             
-            
-                    
-                
                     NavigationStack {
                         Color.bg_green
                             .ignoresSafeArea()

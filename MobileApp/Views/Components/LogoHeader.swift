@@ -16,6 +16,7 @@ struct LogoHeader: View {
             .padding(.trailing, 60)
             .padding(.bottom)
             .background(Color(.white))
+            
     }
 }
 

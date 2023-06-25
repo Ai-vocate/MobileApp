@@ -19,7 +19,7 @@ struct LandingView: View {
                 .tag("questionmark.circle")
             ChatBotView()
                 .tag("bubble.left.and.bubble.right")
-            Text("History")
+            HistoryView()
                 .tag("clock.arrow.circlepath")
             
 
