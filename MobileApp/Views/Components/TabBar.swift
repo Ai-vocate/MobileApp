@@ -38,7 +38,7 @@ struct TabBar: View {
             }
         }
         .frame(width: nil, height: 60)
-        .background(.thinMaterial)
+        .background(Color(.white))
     }
 }
 

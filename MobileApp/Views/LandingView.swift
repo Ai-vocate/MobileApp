@@ -14,8 +14,8 @@ struct LandingView: View {
     var body: some View {
         TabView (selection: $selectedTab) {
             HomeView()
-            .tag("house")
-            Text("Question")
+                .tag("house")
+            FaqView()
                 .tag("questionmark")
             Text("Chat")
                 .tag("bubble.left.and.bubble.right")
