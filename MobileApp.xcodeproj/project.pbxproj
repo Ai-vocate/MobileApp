@@ -151,11 +151,11 @@
 			isa = PBXGroup;
 			children = (
 				3A125B5A2A433B8500D8A4D4 /* LandingView.swift */,
-				2D9F0F432A3C54B7000E1A5A /* Home */,
 				2D9F0F3E2A38730B000E1A5A /* Auth */,
+				2D9F0F432A3C54B7000E1A5A /* Home */,
+				2D9F0F462A47AECC000E1A5A /* FaqView.swift */,
 				4090B3C02A32A670001443FA /* ChatBotView.swift */,
 				40EE9ED22A2EA13E0053C75C /* Components */,
-				2D9F0F462A47AECC000E1A5A /* FaqView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
