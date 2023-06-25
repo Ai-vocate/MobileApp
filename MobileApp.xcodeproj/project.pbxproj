@@ -22,6 +22,10 @@
 		2D9F0F492A47AFF0000E1A5A /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F482A47AFF0000E1A5A /* LogoHeader.swift */; };
 		2D9F0F4B2A47B771000E1A5A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F4A2A47B771000E1A5A /* Colors.swift */; };
 		2D9F0F4F2A47D788000E1A5A /* BackgroundShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F4E2A47D788000E1A5A /* BackgroundShapeView.swift */; };
+		2D9F0F512A48052B000E1A5A /* FaqTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F502A48052B000E1A5A /* FaqTopic.swift */; };
+		2D9F0F542A480989000E1A5A /* ImmigrationFaqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F532A480989000E1A5A /* ImmigrationFaqView.swift */; };
+		2D9F0F562A480AD5000E1A5A /* DivorceFaqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F552A480AD5000E1A5A /* DivorceFaqView.swift */; };
+		2D9F0F582A480DB4000E1A5A /* JobFaqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F572A480DB4000E1A5A /* JobFaqView.swift */; };
 		2DE7BCD92A2F1DE900E470A3 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */; };
 		2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */; };
 		2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */; };
@@ -57,6 +61,10 @@
 		2D9F0F482A47AFF0000E1A5A /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
 		2D9F0F4A2A47B771000E1A5A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2D9F0F4E2A47D788000E1A5A /* BackgroundShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundShapeView.swift; sourceTree = "<group>"; };
+		2D9F0F502A48052B000E1A5A /* FaqTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqTopic.swift; sourceTree = "<group>"; };
+		2D9F0F532A480989000E1A5A /* ImmigrationFaqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmigrationFaqView.swift; sourceTree = "<group>"; };
+		2D9F0F552A480AD5000E1A5A /* DivorceFaqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivorceFaqView.swift; sourceTree = "<group>"; };
+		2D9F0F572A480DB4000E1A5A /* JobFaqView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFaqView.swift; sourceTree = "<group>"; };
 		2DE7BCD82A2F1DE900E470A3 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		2DE7BCDA2A3018DC00E470A3 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		2DE7BCDC2A3039ED00E470A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -120,6 +128,18 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		2D9F0F522A480875000E1A5A /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F0F462A47AECC000E1A5A /* FaqView.swift */,
+				2D9F0F502A48052B000E1A5A /* FaqTopic.swift */,
+				2D9F0F532A480989000E1A5A /* ImmigrationFaqView.swift */,
+				2D9F0F552A480AD5000E1A5A /* DivorceFaqView.swift */,
+				2D9F0F572A480DB4000E1A5A /* JobFaqView.swift */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
 		2DE7BCDE2A3054A500E470A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +173,7 @@
 				3A125B5A2A433B8500D8A4D4 /* LandingView.swift */,
 				2D9F0F3E2A38730B000E1A5A /* Auth */,
 				2D9F0F432A3C54B7000E1A5A /* Home */,
-				2D9F0F462A47AECC000E1A5A /* FaqView.swift */,
+				2D9F0F522A480875000E1A5A /* FAQ */,
 				4090B3C02A32A670001443FA /* ChatBotView.swift */,
 				40EE9ED22A2EA13E0053C75C /* Components */,
 			);
@@ -308,14 +328,18 @@
 				2D9F0F472A47AECC000E1A5A /* FaqView.swift in Sources */,
 				2DE7BCD92A2F1DE900E470A3 /* NavigationHelper.swift in Sources */,
 				2D9F0F452A3C54C7000E1A5A /* SettingsView.swift in Sources */,
+				2D9F0F582A480DB4000E1A5A /* JobFaqView.swift in Sources */,
 				4090B3C62A32A7DC001443FA /* APICaller.swift in Sources */,
+				2D9F0F512A48052B000E1A5A /* FaqTopic.swift in Sources */,
 				2D9F0F4B2A47B771000E1A5A /* Colors.swift in Sources */,
 				2D9F0F302A3474AD000E1A5A /* HomeView.swift in Sources */,
 				3A125B592A43259400D8A4D4 /* TabBar.swift in Sources */,
+				2D9F0F542A480989000E1A5A /* ImmigrationFaqView.swift in Sources */,
 				40EE9ECC2A2E9D930053C75C /* Playground.swift in Sources */,
 				2DE7BCDD2A3039ED00E470A3 /* Authentication.swift in Sources */,
 				CC4CC6552A2B12170031DA9C /* ContentView.swift in Sources */,
 				4090B3C12A32A670001443FA /* ChatBotView.swift in Sources */,
+				2D9F0F562A480AD5000E1A5A /* DivorceFaqView.swift in Sources */,
 				CC4CC6532A2B12170031DA9C /* MobileAppApp.swift in Sources */,
 				2DE7BCDB2A3018DC00E470A3 /* BackButton.swift in Sources */,
 				40EE9ED02A2EA0D30053C75C /* CustomButton.swift in Sources */,

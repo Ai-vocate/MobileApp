@@ -10,11 +10,11 @@
 // https://www.youtube.com/watch?v=Yg3cmpKNieU&ab_channel=ASwiftlyTiltingPlanet
 // https://www.youtube.com/watch?v=TgvYFfCjDMo&t=238s&ab_channel=Indently
 
-// TODO: Connect TabBar to whatever is the landing view after sign in
+
 
 import SwiftUI
 
-let tabBarItems = ["house", "questionmark", "bubble.left.and.bubble.right", "clock.arrow.circlepath"]
+let tabBarItems = ["house", "questionmark.circle", "bubble.left.and.bubble.right", "clock.arrow.circlepath"]
 
 
 struct TabBar: View {
