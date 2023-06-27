@@ -56,7 +56,6 @@ struct BackgroundShape: Shape {
 
 struct BackgroundShapeView: View {
     var isHome = false
-    
     var body: some View {
         
         
