@@ -11,7 +11,20 @@ struct ChatBotView: View {
     @ObservedObject var viewModel = APICaller()
     @State private var text: String = ""
     @State var models = [String]()
-
+    
+    
+    // This is temporary. Need to get user info from database.
+    let user = User(id: "0",
+                    fullname: "Mokhalad Aljuboori",
+                    email: "example@gmail.com",
+                    age: 20)
+    
+    let aiUser = User(id: "0",
+                    fullname: "A I",
+                    email: "...@gmail.com",
+                    age: 0)
+    
+    
     var body: some View {
         ZStack {
             Color.bg_green
@@ -19,9 +32,20 @@ struct ChatBotView: View {
             
             VStack(alignment: .leading) {
                 LogoHeader()
-
+                
+                
                 ForEach(models, id: \.self) { string in
-                    MessageView(message: string)
+                    HStack {
+                        if string.contains("Me:") {
+                            Spacer()
+                            initalsView(user: user)
+                            MessageView(message: string)
+                        } else {
+                            MessageView(message: string)
+                            initalsView(user: aiUser)
+                            Spacer()
+                        }
+                    }.padding(.horizontal)
                 }
                 Spacer()
                 
@@ -39,6 +63,17 @@ struct ChatBotView: View {
         }
     }
     
+    
+    func initalsView(user: User) -> some View {
+        Text(user.initials)
+            .font(.title2)
+            .fontWeight(.semibold)
+            .foregroundColor(.white)
+            .frame(width: 55.0, height: 55.0)
+            .background(Color.chat_text)
+            .clipShape(Circle())
+            .padding(.horizontal, 4)
+    }
     func send() {
         guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
             return
@@ -70,18 +105,12 @@ struct MessageView: View {
     
     var body: some View {
         HStack {
-            if sentByUser {
-                Spacer()
-            }
-            
+
             Text(message)
                 .padding(.all)
                 .background(ChatBubbleShape(sentByUser: sentByUser).fill(sentByUser ? Color.blue : Color.gray))
             
-            if !sentByUser {
-                Spacer()
-            }
-        }.padding(.all)
+        }
     }
 }
 
