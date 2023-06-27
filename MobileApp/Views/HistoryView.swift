@@ -10,20 +10,16 @@ import SwiftUI
 struct HistoryView: View {
     var body: some View {
         NavigationStack {
-            Color.bg_green
-                .ignoresSafeArea()
-                .overlay(
-                    ZStack {
-                        BackgroundShapeView()
-                            .shadow(radius: 2, x: 0, y: -3)
-                        
-                        VStack {
-                            LogoHeader()
-                            
-                            Spacer()
-                        }
-                    }
-                )
+            ZStack {
+                Color.bg_green.ignoresSafeArea()
+                BackgroundShapeView().shadow(radius: 2, x: 0, y: -3)
+                
+                VStack {
+                    LogoHeader()
+                    Spacer()
+                }
+            
+            }
         }
     }
 }
