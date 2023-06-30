@@ -38,11 +38,11 @@ struct ChatBotView: View {
                     HStack {
                         if string.contains("Me:") {
                             Spacer()
+                            MessageView(message: string)
                             initalsView(user: user)
-                            MessageView(message: string)
                         } else {
-                            MessageView(message: string)
                             initalsView(user: aiUser)
+                            MessageView(message: string)
                             Spacer()
                         }
                     }.padding(.horizontal)
