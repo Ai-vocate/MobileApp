@@ -15,7 +15,7 @@ struct HomeView: View {
     
     @State var showSettingsView = false
     
-    var showPreview = true;
+    var showPreview = false;
     var body: some View {
         if !showPreview {
             if let user = viewModel.currentUser {
