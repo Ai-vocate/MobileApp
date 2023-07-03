@@ -117,7 +117,7 @@ struct HomeView: View {
             }
         } // If showPreview
         else {
-            var user = User(id: NSUUID().uuidString, fullname: "Ai Vocate", email: "example@gmail.com", age: 1)
+            let user = User(id: NSUUID().uuidString, fullname: "Ai Vocate", email: "example@gmail.com", age: 1)
             NavigationStack {
                 ZStack {
                     Color.bg_green

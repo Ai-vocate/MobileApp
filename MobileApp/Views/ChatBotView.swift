@@ -12,12 +12,15 @@ struct ChatBotView: View {
     @State private var text: String = ""
     @State var models = [String]()
     
+    @EnvironmentObject var viewModelUser: AuthViewModel
+    
     
     // This is temporary. Need to get user info from database.
-    let user = User(id: "0",
-                    fullname: "Mokhalad Aljuboori",
-                    email: "example@gmail.com",
-                    age: 20)
+    
+//    let user = User(id: "0",
+//                    fullname: "Mokhalad Aljuboori",
+//                    email: "example@gmail.com",
+//                    age: 20)
     
     let aiUser = User(id: "0",
                     fullname: "A I",
@@ -26,41 +29,83 @@ struct ChatBotView: View {
     
     
     var body: some View {
-        ZStack {
-            Color.bg_green
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
-                LogoHeader()
+        
+        if let user = viewModelUser.currentUser {
+            ZStack {
+                Color.bg_green
+                    .ignoresSafeArea()
                 
-                
-                ForEach(models, id: \.self) { string in
-                    HStack {
-                        if string.contains("Me:") {
-                            Spacer()
-                            MessageView(message: string)
-                            initalsView(user: user)
-                        } else {
-                            initalsView(user: aiUser)
-                            MessageView(message: string)
-                            Spacer()
-                        }
-                    }.padding(.horizontal)
-                }
-                Spacer()
-                
-                HStack {
-                    TextField("Type here...", text: $text)
-                    Button("Send") {
-                        send()
+                VStack(alignment: .leading) {
+                    LogoHeader()
+                    
+                    
+                    ForEach(models, id: \.self) { string in
+                        HStack {
+                            if string.contains("Me:") {
+                                Spacer()
+                                MessageView(message: string)
+                                initalsView(user: user)
+                            } else {
+                                initalsView(user: aiUser)
+                                MessageView(message: string)
+                                Spacer()
+                            }
+                        }.padding(.horizontal)
                     }
-                }.padding(.all)
-                Spacer().frame(height: 38.0) // Spacer for Tab Bar
+                    Spacer()
+                    
+                    HStack {
+                        TextField("Type here...", text: $text)
+                        Button("Send") {
+                            send()
+                        }
+                    }.padding(.all)
+                    Spacer().frame(height: 38.0) // Spacer for Tab Bar
+                }
+                .onAppear {
+                    viewModel.setup()
+                }
             }
-            .onAppear {
-                viewModel.setup()
+        } else {
+            let user = User(id: NSUUID().uuidString, fullname: "Ai Vocate", email: "example@gmail.com", age: 1)
+            
+            ZStack {
+                Color.bg_green
+                    .ignoresSafeArea()
+                
+                VStack(alignment: .leading) {
+                    LogoHeader()
+                    
+                    
+                    ForEach(models, id: \.self) { string in
+                        HStack {
+                            if string.contains("Me:") {
+                                Spacer()
+                                MessageView(message: string)
+                                initalsView(user: user)
+                            } else {
+                                initalsView(user: aiUser)
+                                MessageView(message: string)
+                                Spacer()
+                            }
+                        }.padding(.horizontal)
+                    }
+                    Spacer()
+                    
+                    HStack {
+                        TextField("Type here...", text: $text)
+                        Button("Send") {
+                            send()
+                        }
+                    }.padding(.all)
+                    Spacer().frame(height: 38.0) // Spacer for Tab Bar
+                }
+                .onAppear {
+                    viewModel.setup()
+                }
             }
         }
+        
     }
     
     
