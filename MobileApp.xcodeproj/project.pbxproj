@@ -144,6 +144,7 @@
 				2DE7BCDF2A3054B800E470A3 /* User.swift */,
 				4090B3C52A32A7DC001443FA /* APICaller.swift */,
 				2D9F0F3F2A387D66000E1A5A /* AuthViewModel.swift */,
+				40EE9ED12A2EA1270053C75C /* Views */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,7 +223,6 @@
 				2D9F0F312A3865D5000E1A5A /* GoogleService-Info.plist */,
 				2DE7BCDE2A3054A500E470A3 /* Models */,
 				CC4CC6522A2B12170031DA9C /* MobileAppApp.swift */,
-				40EE9ED12A2EA1270053C75C /* Views */,
 				40EE9ECB2A2E9D930053C75C /* Playground.swift */,
 				CC4CC6562A2B12180031DA9C /* Assets.xcassets */,
 				CC4CC6582A2B12180031DA9C /* Preview Content */,
