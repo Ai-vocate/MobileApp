@@ -132,7 +132,7 @@ struct ChatBotView: View {
         saveMessage(message: text)
         viewModel.send(text: text) { response in
             DispatchQueue.main.async {
-                self.models.append("ChaptGPT: " + response)
+                models.append("ChaptGPT: " + response)
                 print(response)
                 saveMessage(message: response)
                 self.text = ""

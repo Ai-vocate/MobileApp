@@ -10,7 +10,7 @@ import Foundation
 
 final class APICaller: ObservableObject {
     init() {}
-    private let API_KEY = "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"
+    private let API_KEY = ""
     private var client: OpenAISwift?
     
     
@@ -28,6 +28,7 @@ final class APICaller: ObservableObject {
             case .success(let model):
                 let output = model.choices?.first?.text ?? ""
                 completion(output)
+//                print(output)
                 
             case .failure:
                 print("Error")
