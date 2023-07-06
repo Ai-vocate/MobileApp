@@ -10,11 +10,11 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct ChatBotView: View {
-    @ObservedObject var viewModel = APICaller()
+    @ObservedObject var APIviewModel = APICaller()
     @State var text = ""
     @State var models = [String]()
     
-    @EnvironmentObject var viewModelUser: AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     
     
     // This is temporary. Need to get user info from database.
@@ -32,7 +32,7 @@ struct ChatBotView: View {
     
     var body: some View {
         
-        if let user = viewModelUser.currentUser {
+        if let user = viewModel.currentUser {
             ZStack {
                 Color.bg_green
                     .ignoresSafeArea()
@@ -66,7 +66,7 @@ struct ChatBotView: View {
                     Spacer().frame(height: 38.0) // Spacer for Tab Bar
                 }
                 .onAppear {
-                    viewModel.setup()
+                    APIviewModel.setup()
                 }
             }
         } else {
@@ -104,7 +104,7 @@ struct ChatBotView: View {
                     Spacer().frame(height: 38.0) // Spacer for Tab Bar
                 }
                 .onAppear {
-                    viewModel.setup()
+                    APIviewModel.setup()
                 }
             }
         }
@@ -130,9 +130,9 @@ struct ChatBotView: View {
         models.append("Me: \(text)")
         // Add history + text to viewModel.send;
         saveMessage(message: text)
-        viewModel.send(text: text) { response in
+        APIviewModel.send(text: text) { response in
             DispatchQueue.main.async {
-                models.append("ChaptGPT: " + response)
+                self.models.append("ChaptGPT: " + response)
                 print(response)
                 saveMessage(message: response)
                 self.text = ""
@@ -142,8 +142,8 @@ struct ChatBotView: View {
     }
     
     func saveMessage(message: String) {
-        guard let fromId = viewModelUser.userSession?.uid else { return }
-        let document = viewModelUser.firestore.collection("messages")
+        guard let fromId = viewModel.userSession?.uid else { return }
+        let document = viewModel.firestore.collection("messages")
             .document(fromId)
             
         let messageData = ["fromId": fromId, "text": message, "timestamp": Timestamp()] as [String : Any]

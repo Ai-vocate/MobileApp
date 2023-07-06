@@ -22,17 +22,19 @@ final class APICaller: ObservableObject {
     func send(text: String,
               completion: @escaping (String) -> Void) {
         client?.sendCompletion(with: text,
-                               maxTokens: 250,
+                               maxTokens: 500,
                                completionHandler: { result in
             switch result {
-            case .success(let model):
-                let output = model.choices?.first?.text ?? ""
-                completion(output)
-//                print(output)
-                
-            case .failure:
-                print("Error")
-                break // TODO: handle error
+                case .success(let model):
+                    let output = model.choices?.first?.text ?? ""
+//                let output = model.choices?.first?.text
+                    completion(output)
+                    print("Output is: " + output)
+    //                print(text)
+                    
+                case .failure:
+                    print("Error")
+                    break // TODO: handle error
             }
         })
         
