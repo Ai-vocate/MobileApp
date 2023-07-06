@@ -63,7 +63,7 @@ struct LogInView: View {
                                        backGroundColor: Color.clear)
                     
                     NavigationLinkView(desination: {
-                        ChatBotView()},
+                        FaqView()},
                                        text: "Guest",
                                        backGroundColor: Color.clear)
                 }

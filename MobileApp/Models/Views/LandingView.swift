@@ -27,6 +27,7 @@ struct LandingView: View {
         .overlay(alignment: .bottom) {
             TabBar(selectedTab: $selectedTab)
         }
+        .ignoresSafeArea(.keyboard, edges: .all)
     }
 }
 
