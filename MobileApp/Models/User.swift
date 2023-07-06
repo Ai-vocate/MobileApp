@@ -14,6 +14,7 @@ struct User: Identifiable, Codable {
     let email: String;
 //    let phoneNumber: String;
     let age: Int;
+//    let chats: ____;
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()

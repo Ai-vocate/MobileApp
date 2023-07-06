@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
 
 struct ChatBotView: View {
     @ObservedObject var viewModel = APICaller()
@@ -125,11 +127,32 @@ struct ChatBotView: View {
         }
         models.append("Me: \(text)")
         // Add history + text to viewModel.send;
+        saveMessage(message: text)
         viewModel.send(text: text) { response in
             DispatchQueue.main.async {
                 self.models.append("ChaptGPT: " + response)
+                saveMessage(message: response)
                 self.text = ""
             }
+        }
+        
+        
+    }
+    
+    func saveMessage(message: String) {
+        guard let fromId = viewModelUser.userSession?.uid else { return }
+        let document = viewModelUser.firestore.collection("messages")
+            .document(fromId)
+            
+        let messageData = ["fromId": fromId, "text": message, "timestamp": Timestamp()] as [String : Any]
+        
+        document.setData(messageData) { error in
+            if let error = error {
+                print(error)
+                print("DEBUG: failed to save message to Firebase")
+            }
+            
+            
         }
     }
 }

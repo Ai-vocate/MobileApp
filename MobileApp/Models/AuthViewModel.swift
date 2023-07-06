@@ -16,8 +16,15 @@ class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User? //tells us whether user is logged in
     @Published var currentUser: User?
     
+    @Published var errorMessage = ""
+    
+    let firestore: Firestore
+    
+    
     init() {
         self.userSession = Auth.auth().currentUser
+        
+        self.firestore = Firestore.firestore()
         
         Task {
             await fetchUser()
