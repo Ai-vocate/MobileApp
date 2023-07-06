@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 struct ChatBotView: View {
     @ObservedObject var viewModel = APICaller()
-    @State private var text: String = ""
+    @State var text = ""
     @State var models = [String]()
     
     @EnvironmentObject var viewModelUser: AuthViewModel
@@ -43,6 +43,7 @@ struct ChatBotView: View {
                     
                     ForEach(models, id: \.self) { string in
                         HStack {
+//                            Text(string)
                             if string.contains("Me:") {
                                 Spacer()
                                 MessageView(message: string)
@@ -121,6 +122,7 @@ struct ChatBotView: View {
             .clipShape(Circle())
             .padding(.horizontal, 4)
     }
+    
     func send() {
         guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
             return
@@ -131,11 +133,11 @@ struct ChatBotView: View {
         viewModel.send(text: text) { response in
             DispatchQueue.main.async {
                 self.models.append("ChaptGPT: " + response)
+                print(response)
                 saveMessage(message: response)
                 self.text = ""
             }
         }
-        
         
     }
     
