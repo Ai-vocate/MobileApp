@@ -10,6 +10,7 @@ import Foundation
 struct Chat: Identifiable, Codable {
     let id: String
     var messages = [String]()
+    let day: Date
     
     
 }

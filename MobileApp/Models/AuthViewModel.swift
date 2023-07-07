@@ -74,7 +74,21 @@ class AuthViewModel: ObservableObject {
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }
-        self.currentUser = try? snapshot.data(as: User.self)
+//        self.currentUser = try? snapshot.data(as: User.self)
+//        self.currentUser = User(data: snapshot.data)
+        guard let data = snapshot.data() else { return }
+        self.currentUser = User(data: data)
+//        self.firestore.collection("users").document(uid).collection("chats").addSnapshotListener { querySnapshot, error in
+//            if let error = error {
+//                print(error)
+//                return
+//            }
+//            
+//            querySnapshot?.documents.forEach({queryDocumentSnapshot in
+//                let data = queryDocumentSnapshot.data()
+//                let chat[data] = Chat(
+//            })
+//        }
         
 //        print("DEBUG: Current user is \(self.currentUser)")
     }

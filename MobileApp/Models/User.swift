@@ -34,9 +34,17 @@ class User: Identifiable, Codable {
         self.chats = chats
     }
     
-    func creatChat(id: String) {
+    init(data: [String: Any]) {
+        self.id = data["id"] as? String ?? ""
+        self.fullname = data["fullname"] as? String ?? ""
+        self.email = data["email"] as? String ?? ""
+        self.age = Int(data["age"] as? String ?? "") ?? 0
+//        self.chats = data["chats"] as? String ?? ""
+    }
+    
+    func createChat(id: String) {
         
-        self.chats[id] = Chat(id: id)
+        self.chats[id] = Chat(id: id, day: Date.now)
     }
     
     func addMessage(message: String, id: String) {
