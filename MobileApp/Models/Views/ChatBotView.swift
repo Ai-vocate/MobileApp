@@ -16,6 +16,8 @@ struct ChatBotView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
+    @State var chatId = "0"
+    
     
     // This is temporary. Need to get user info from database.
     
@@ -24,10 +26,7 @@ struct ChatBotView: View {
 //                    email: "example@gmail.com",
 //                    age: 20)
     
-    let aiUser = User(id: "0",
-                    fullname: "A I",
-                    email: "...@gmail.com",
-                    age: 0)
+    let aiUser = User(id: NSUUID().uuidString, fullname: "Ai Vocate", email: "example@gmail.com", age: 1)
     
     
     var body: some View {
@@ -42,7 +41,7 @@ struct ChatBotView: View {
                     
                     
                     ForEach(models, id: \.self) { string in
-                        HStack {
+                        HStack(alignment: .top) {
 //                            Text(string)
                             if string.contains("Me:") {
                                 Spacer()
@@ -81,7 +80,7 @@ struct ChatBotView: View {
                     
                     
                     ForEach(models, id: \.self) { string in
-                        HStack {
+                        HStack(alignment: .top) {
                             if string.contains("Me:") {
                                 Spacer()
                                 MessageView(message: string)
@@ -127,24 +126,47 @@ struct ChatBotView: View {
         guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
             return
         }
+        
         models.append("Me: \(text)")
         // Add history + text to viewModel.send;
-        saveMessage(message: text)
+        saveMessage(message: "Me: \(text)", isUser: true)
         APIviewModel.send(text: text) { response in
             DispatchQueue.main.async {
                 self.models.append("ChaptGPT: " + response)
-                print(response)
-                saveMessage(message: response)
+//                print(response)
+                saveMessage(message: "ChaptGPT: " + response, isUser: false)
                 self.text = ""
             }
         }
         
     }
     
-    func saveMessage(message: String) {
+    func saveMessage(message: String, isUser: Bool) {
+
+        if models.count == 1 {
+            //initialize new chat for the user
+            self.chatId = NSUUID().uuidString
+            viewModel.currentUser?.creatChat(id: chatId)
+            
+        }
+        //add message to user chat
+        viewModel.currentUser?.chats[chatId]?.messages.append(message)
+        
         guard let fromId = viewModel.userSession?.uid else { return }
-        let document = viewModel.firestore.collection("messages")
+//            guard let toId = aiUser.uid else { return }
+//        }
+        
+        let document = viewModel.firestore.collection("users")
             .document(fromId)
+            .collection("chats")
+            .document(chatId)
+            .collection("messages")
+            .document()
+        
+//        let document = viewModel.firestore.collection("messages")
+//            .document(fromId)
+//            .collection("chats")
+//            .document()
             
         let messageData = ["fromId": fromId, "text": message, "timestamp": Timestamp()] as [String : Any]
         

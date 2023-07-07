@@ -8,13 +8,13 @@
 import Foundation
 
 
-struct User: Identifiable, Codable {
+class User: Identifiable, Codable {
     let id: String;
     let fullname: String;
     let email: String;
 //    let phoneNumber: String;
     let age: Int;
-//    let chats: ____;
+    var chats = [String : Chat]()
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -24,6 +24,23 @@ struct User: Identifiable, Codable {
         }
         
         return ""
+    }
+    
+    init(id: String, fullname: String, email: String, age: Int, chats: [String: Chat] = [String: Chat]()) {
+        self.id = id
+        self.fullname = fullname
+        self.email = email
+        self.age = age
+        self.chats = chats
+    }
+    
+    func creatChat(id: String) {
+        
+        self.chats[id] = Chat(id: id)
+    }
+    
+    func addMessage(message: String, id: String) {
+        
     }
 }
 
