@@ -10,7 +10,7 @@ import Foundation
 
 final class APICaller: ObservableObject {
     init() {}
-    private let API_KEY = "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"
+    private let API_KEY = ""
     private var client: OpenAISwift?
     
     

@@ -66,6 +66,7 @@ struct ChatBotView: View {
                 }
                 .onAppear {
                     APIviewModel.setup()
+                    models.removeAll()
                 }
             }
         } else {
