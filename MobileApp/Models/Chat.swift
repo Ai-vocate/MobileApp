@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Chat: Identifiable, Codable {
+class Chat: Identifiable, Codable, ObservableObject {
     let id: String
     var messages = [String]()
     let day: Date

@@ -78,17 +78,32 @@ class AuthViewModel: ObservableObject {
 //        self.currentUser = User(data: snapshot.data)
         guard let data = snapshot.data() else { return }
         self.currentUser = User(data: data)
-//        self.firestore.collection("users").document(uid).collection("chats").addSnapshotListener { querySnapshot, error in
+        
+        //fetch user chats
+//        guard let chats = try? await Firestore.firestore().collection("users").document(uid).collection("chats").
+        //self.currentUser.chats =
+        self.firestore.collection("users").document(uid).collection("chats").getDocuments { (snapshot, error) in
 //            if let error = error {
 //                print(error)
 //                return
 //            }
-//            
+            guard let snapshot = snapshot, error == nil else {
+                //handle error
+                return
+            }
+            print("Number of documents: \(snapshot.documents.count)")
+                snapshot.documents.forEach({ (documentSnapshot) in
+                  let documentData = documentSnapshot.data()
+                  let quote = documentData["Quote"] as? String
+                  let url = documentData["Url"] as? String
+                  print("Quote: \(quote ?? "(unknown)")")
+                  print("Url: \(url ?? "(unknown)")")
+                })
 //            querySnapshot?.documents.forEach({queryDocumentSnapshot in
 //                let data = queryDocumentSnapshot.data()
 //                let chat[data] = Chat(
 //            })
-//        }
+        }
         
 //        print("DEBUG: Current user is \(self.currentUser)")
     }

@@ -14,7 +14,7 @@ class User: Identifiable, Codable {
     let email: String;
 //    let phoneNumber: String;
     let age: Int;
-    var chats = [String : Chat]()
+    var chats = [Chat]()
     
     var initials: String {
         let formatter = PersonNameComponentsFormatter()
@@ -26,7 +26,7 @@ class User: Identifiable, Codable {
         return ""
     }
     
-    init(id: String, fullname: String, email: String, age: Int, chats: [String: Chat] = [String: Chat]()) {
+    init(id: String, fullname: String, email: String, age: Int, chats: [Chat] = [Chat]()) {
         self.id = id
         self.fullname = fullname
         self.email = email
@@ -44,7 +44,7 @@ class User: Identifiable, Codable {
     
     func createChat(id: String) {
         
-        self.chats[id] = Chat(id: id, day: Date.now)
+//        self.chats.append(Chat(from: id as! Decoder))
     }
     
     func addMessage(message: String, id: String) {

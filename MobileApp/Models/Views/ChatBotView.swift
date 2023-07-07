@@ -16,6 +16,8 @@ struct ChatBotView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
+    @EnvironmentObject var chat: Chat
+    
     @State var chatId = "0"
     
     
@@ -148,15 +150,32 @@ struct ChatBotView: View {
             //initialize new chat for the user
             self.chatId = NSUUID().uuidString
             viewModel.currentUser?.createChat(id: chatId)
+//            chat = 
             
         }
         //add message to user chat
-        viewModel.currentUser?.chats[chatId]?.messages.append(message)
+        viewModel.currentUser?.chats[0].messages.append(message)
         
         guard let fromId = viewModel.userSession?.uid else { return }
 //            guard let toId = aiUser.uid else { return }
 //        }
         
+        let documentchat = viewModel.firestore.collection("users")
+            .document(fromId)
+            .collection("chats")
+            .document(chatId)
+           
+        
+        
+        let chatData = ["chatId": chatId, "day": Date.now] as [String : Any]
+        documentchat.setData(chatData) { error in
+            if let error = error {
+                print(error)
+                print("DEBUG: failed to save chat to Firebase")
+            }
+             
+        }
+
         let document = viewModel.firestore.collection("users")
             .document(fromId)
             .collection("chats")
@@ -164,11 +183,6 @@ struct ChatBotView: View {
             .collection("messages")
             .document()
         
-//        let document = viewModel.firestore.collection("messages")
-//            .document(fromId)
-//            .collection("chats")
-//            .document()
-            
         let messageData = ["fromId": fromId, "text": message, "timestamp": Timestamp()] as [String : Any]
         
         document.setData(messageData) { error in
@@ -176,8 +190,7 @@ struct ChatBotView: View {
                 print(error)
                 print("DEBUG: failed to save message to Firebase")
             }
-            
-            
+             
         }
     }
 }
