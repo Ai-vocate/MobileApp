@@ -8,6 +8,7 @@
 import Foundation
 
 class Chat: Identifiable, Codable, ObservableObject {
+    //use stateobject to pass chats into views?
     let id: String
     var messages = [String]()
     let day: Date

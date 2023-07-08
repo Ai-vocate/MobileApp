@@ -45,6 +45,7 @@ class User: Identifiable, Codable {
     func createChat(id: String) {
         
 //        self.chats.append(Chat(from: id as! Decoder))
+        self.chats.append(Chat(id: id, day: Date.now))
     }
     
     func addMessage(message: String, id: String) {
