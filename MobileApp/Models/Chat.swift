@@ -12,5 +12,9 @@ class Chat: Identifiable, Codable, ObservableObject {
     var messages = [String]()
     let day: Date
     
-    
+    init(id: String, messages: [String] = [String](), day: Date) {
+        self.id = id
+        self.messages = messages
+        self.day = day
+    }
 }

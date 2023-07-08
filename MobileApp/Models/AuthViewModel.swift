@@ -83,26 +83,43 @@ class AuthViewModel: ObservableObject {
 //        guard let chats = try? await Firestore.firestore().collection("users").document(uid).collection("chats").
         //self.currentUser.chats =
         self.firestore.collection("users").document(uid).collection("chats").getDocuments { (snapshot, error) in
-//            if let error = error {
-//                print(error)
-//                return
-//            }
+
             guard let snapshot = snapshot, error == nil else {
                 //handle error
                 return
             }
             print("Number of documents: \(snapshot.documents.count)")
                 snapshot.documents.forEach({ (documentSnapshot) in
-                  let documentData = documentSnapshot.data()
-                  let quote = documentData["Quote"] as? String
-                  let url = documentData["Url"] as? String
-                  print("Quote: \(quote ?? "(unknown)")")
-                  print("Url: \(url ?? "(unknown)")")
+                    let documentData = documentSnapshot.data()
+                    let chatId = documentData["chatId"] as? String
+                    let day = documentData["day"] as? Date
+                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
                 })
-//            querySnapshot?.documents.forEach({queryDocumentSnapshot in
-//                let data = queryDocumentSnapshot.data()
-//                let chat[data] = Chat(
-//            })
+
+        }
+        
+        for chat in self.currentUser?.chats ?? [] {
+            let chatId = chat.id
+            self.firestore.collection("users")
+                .document(uid).collection("chats")
+                .document(chatId).collection("messages")
+                .getDocuments { (snapshot, error) in
+ 
+                guard let snapshot = snapshot, error == nil else {
+                    //handle error
+                    return
+                }
+                print("Number of documents: \(snapshot.documents.count)")
+                    snapshot.documents.forEach({ (documentSnapshot) in
+                        let documentData = documentSnapshot.data()
+                        //TODO: make message object and collect message timestamps, fromIds, etc
+//                        let fromId = documentData["fromId"] as? String
+                        let text = documentData["text"] as? String
+//                        let timestamp = documentData["timestamp"] as?
+                        chat.messages.append(text ?? "")
+                    })
+ 
+            }
         }
         
 //        print("DEBUG: Current user is \(self.currentUser)")
