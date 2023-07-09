@@ -24,7 +24,7 @@ struct LandingView: View {
                 .tag("clock.arrow.circlepath")
                 .onTapGesture {
                     Task {
-                        await viewModel.fetchUser()
+                        await viewModel.fetchChats()
                     }
                 }
             

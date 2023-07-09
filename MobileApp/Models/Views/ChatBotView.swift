@@ -100,6 +100,9 @@ struct ChatBotView: View {
                     HStack {
                         TextField("Type here...", text: $text)
                         Button("Send") {
+//                            send()
+                        }
+                        .onTapGesture {
                             send()
                         }
                     }.padding(.all)
@@ -154,18 +157,17 @@ struct ChatBotView: View {
             
         }
         //add message to user chat
-        viewModel.currentUser?.chats[0].messages.append(message)
+//        viewModel.currentUser?.chats[0].messages.append(message)
         
         guard let fromId = viewModel.userSession?.uid else { return }
 //            guard let toId = aiUser.uid else { return }
 //        }
         
+        //save chat data
         let documentchat = viewModel.firestore.collection("users")
             .document(fromId)
             .collection("chats")
             .document(chatId)
-           
-        
         
         let chatData = ["chatId": chatId, "day": Date.now] as [String : Any]
         documentchat.setData(chatData) { error in
@@ -176,6 +178,8 @@ struct ChatBotView: View {
              
         }
 
+        
+        //save message data
         let document = viewModel.firestore.collection("users")
             .document(fromId)
             .collection("chats")
@@ -184,7 +188,6 @@ struct ChatBotView: View {
             .document()
         
         let messageData = ["fromId": fromId, "text": message, "timestamp": Timestamp()] as [String : Any]
-        
         document.setData(messageData) { error in
             if let error = error {
                 print(error)

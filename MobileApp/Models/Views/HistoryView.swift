@@ -22,11 +22,8 @@ struct HistoryView: View {
                     LogoHeader()
                     Spacer()
                     
-                    // TODO: Change so it loops through a list of dates/topics. Probably have to make a model to display this + chat history.
-                    
                     ScrollView {
                         if let user = viewModel.currentUser {
-                            
                             let chats = user.chats
                             ForEach(chats, id: \.id) { chat in
                                 NavigationLink {
