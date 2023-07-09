@@ -61,7 +61,6 @@ struct RegistrationView: View {
 
                     
                     CustomButton(text: "Sign Up", backGroundColor: Color.green) {
-                        // TODO: sign up action.
                         Task {
                             print(password)
                             try await viewModel.createUser(withEmail: email, password: password, fullname: fullname, age: Int(age) ?? 0)
