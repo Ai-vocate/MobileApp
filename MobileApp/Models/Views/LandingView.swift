@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandingView: View {
     
+    @EnvironmentObject var viewModel: AuthViewModel
     @State private var selectedTab = "house"
     
     var body: some View {
@@ -21,6 +22,11 @@ struct LandingView: View {
                 .tag("bubble.left.and.bubble.right")
             HistoryView()
                 .tag("clock.arrow.circlepath")
+                .onTapGesture {
+                    Task {
+                        await viewModel.fetchUser()
+                    }
+                }
             
 
         }

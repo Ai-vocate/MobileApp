@@ -79,22 +79,46 @@ class AuthViewModel: ObservableObject {
         guard let data = snapshot.data() else { return }
         self.currentUser = User(data: data)
         
-        //fetch user chats
-//        guard let chats = try? await Firestore.firestore().collection("users").document(uid).collection("chats").
-        //self.currentUser.chats =
-        self.firestore.collection("users").document(uid).collection("chats").getDocuments { (snapshot, error) in
+        await fetchChats()
+        
+//        print("DEBUG: Current user is \(self.currentUser)")
+    }
+    
+    func fetchChats() async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        self.firestore.collection("users").document(uid).collection("chats").getDocuments { (snapshot, error) in
+//
+//            guard let snapshot = snapshot, error == nil else {
+//                //handle error
+//                return
+//            }
+//            print("Number of documents: \(snapshot.documents.count)")
+//                snapshot.documents.forEach({ (documentSnapshot) in
+//                    let documentData = documentSnapshot.data()
+//                    let chatId = documentData["chatId"] as? String
+//                    let day = documentData["day"] as? Date
+//                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
+//                })
+//
+//        }
+        
+        self.firestore.collection("users").document(uid).collection("chats").addSnapshotListener { querySnapshot, error in
 
-            guard let snapshot = snapshot, error == nil else {
-                //handle error
+            if let error = error {
+                print("DEBUG: Failed to listen for chats: \(error)")
                 return
             }
-            print("Number of documents: \(snapshot.documents.count)")
-                snapshot.documents.forEach({ (documentSnapshot) in
-                    let documentData = documentSnapshot.data()
-                    let chatId = documentData["chatId"] as? String
-                    let day = documentData["day"] as? Date
+            
+            querySnapshot?.documentChanges.forEach({ change in
+                if change.type == .added {
+                    let data = change.document.data()
+                    let chatId = data["chatId"] as? String
+                    let day = data["day"] as? Date
                     self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
-                })
+                }
+            })
+            
+            
 
         }
         
@@ -103,26 +127,25 @@ class AuthViewModel: ObservableObject {
             self.firestore.collection("users")
                 .document(uid).collection("chats")
                 .document(chatId).collection("messages")
-                .getDocuments { (snapshot, error) in
+                .order(by: "timestamp")
+                .addSnapshotListener { querySnapshot, error in
  
-                guard let snapshot = snapshot, error == nil else {
-                    //handle error
-                    return
-                }
-                print("Number of documents: \(snapshot.documents.count)")
-                    snapshot.documents.forEach({ (documentSnapshot) in
-                        let documentData = documentSnapshot.data()
-                        //TODO: make message object and collect message timestamps, fromIds, etc
-//                        let fromId = documentData["fromId"] as? String
-                        let text = documentData["text"] as? String
-//                        let timestamp = documentData["timestamp"] as?
-                        chat.messages.append(text ?? "")
+                    if let error = error {
+                        print("DEBUG: Failed to listen for messages: \(error)")
+                        return
+                    }
+                    
+                    querySnapshot?.documentChanges.forEach({ change in
+                        if change.type == .added {
+                            let data = change.document.data()
+                            let text = data["text"] as? String
+                            chat.messages.append(text ?? "")
+                        }
                     })
+                
  
             }
         }
-        
-//        print("DEBUG: Current user is \(self.currentUser)")
     }
     
 }

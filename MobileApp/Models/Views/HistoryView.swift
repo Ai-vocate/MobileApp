@@ -26,6 +26,7 @@ struct HistoryView: View {
                     
                     ScrollView {
                         if let user = viewModel.currentUser {
+                            
                             let chats = user.chats
                             ForEach(chats, id: \.id) { chat in
                                 NavigationLink {
@@ -38,7 +39,7 @@ struct HistoryView: View {
                                 }
                             }
                         } else {
-                            let user = User.MOCK_USER
+//                            let user = User.MOCK_USER
                             ForEach(0 ..< 15) { item in
                                 NavigationLink {
                                     // TODO: Replace this with a chatbot view that contains chat history
