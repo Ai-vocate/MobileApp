@@ -27,7 +27,7 @@ struct HistoryView: View {
                             let chats = viewModel.chats
                             ForEach(chats, id: \.id) { chat in
                                 NavigationLink {
-                                    // TODO: Replace this with a chatbot view that contains chat history
+                                
                                     ChatBotView()
                                 } label: {
                                     HistoryRow(date: chat.day.formatted(date: .abbreviated, time: .omitted ) , topic: "Immigration")
