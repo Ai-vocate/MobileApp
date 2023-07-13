@@ -169,7 +169,7 @@ struct ChatBotView: View {
             .collection("chats")
             .document(chatId)
         
-        let chatData = ["chatId": chatId, "day": Date.now] as [String : Any]
+        let chatData = ["chatId": chatId, "day": Timestamp()] as [String : Any]
         documentchat.setData(chatData) { error in
             if let error = error {
                 print(error)

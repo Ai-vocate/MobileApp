@@ -92,21 +92,7 @@ class AuthViewModel: ObservableObject {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("didn't fetch chats")
             return }
-//        self.firestore.collection("users").document(uid).collection("chats").getDocuments { (snapshot, error) in
-//
-//            guard let snapshot = snapshot, error == nil else {
-//                //handle error
-//                return
-//            }
-//            print("Number of documents: \(snapshot.documents.count)")
-//                snapshot.documents.forEach({ (documentSnapshot) in
-//                    let documentData = documentSnapshot.data()
-//                    let chatId = documentData["chatId"] as? String
-//                    let day = documentData["day"] as? Date
-//                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
-//                })
-//
-//        }
+
         
         self.firestore.collection("users").document(uid).collection("chats").addSnapshotListener { querySnapshot, error in
 
@@ -119,9 +105,10 @@ class AuthViewModel: ObservableObject {
                 if change.type == .added {
                     let data = change.document.data()
                     let chatId = data["chatId"] as? String
-                    let day = data["day"] as? Date
+                    let day = data["day"] as? Timestamp
 //                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
-                    self.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
+                    self.chats.append(Chat(id: chatId ?? "0", day: day?.dateValue() ?? Date.now))
+//                    print(day)
                 }
             })
             
