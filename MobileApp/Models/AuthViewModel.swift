@@ -94,7 +94,10 @@ class AuthViewModel: ObservableObject {
             return }
 
         
-        self.firestore.collection("users").document(uid).collection("chats").addSnapshotListener { querySnapshot, error in
+        self.firestore.collection("users")
+            .document(uid).collection("chats")
+            .order(by: "day")
+            .addSnapshotListener { querySnapshot, error in
 
             if let error = error {
                 print("DEBUG: Failed to listen for chats: \(error)")
