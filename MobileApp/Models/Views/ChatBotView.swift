@@ -152,7 +152,7 @@ struct ChatBotView: View {
         if models.count == 1 {
             //initialize new chat for the user
             self.chatId = NSUUID().uuidString
-            viewModel.currentUser?.createChat(id: chatId)
+//            viewModel.currentUser?.createChat(id: chatId)
 //            chat = 
             
         }
