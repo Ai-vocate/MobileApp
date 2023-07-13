@@ -22,11 +22,11 @@ struct LandingView: View {
                 .tag("bubble.left.and.bubble.right")
             HistoryView()
                 .tag("clock.arrow.circlepath")
-                .onTapGesture {
-                    Task {
-                        await viewModel.fetchChats()
-                    }
-                }
+//                .onTapGesture {
+//                    Task {
+//                        await viewModel.fetchChats()
+//                    }
+//                }
             
 
         }

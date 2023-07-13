@@ -10,7 +10,7 @@ import SwiftUI
 struct HistoryView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
-    
+   
     
     var body: some View {
         NavigationStack {
@@ -24,7 +24,7 @@ struct HistoryView: View {
                     
                     ScrollView {
                         if let user = viewModel.currentUser {
-                            let chats = user.chats
+                            let chats = viewModel.chats
                             ForEach(chats, id: \.id) { chat in
                                 NavigationLink {
                                     // TODO: Replace this with a chatbot view that contains chat history

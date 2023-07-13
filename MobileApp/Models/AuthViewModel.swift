@@ -15,6 +15,7 @@ import FirebaseFirestoreSwift
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User? //tells us whether user is logged in
     @Published var currentUser: User?
+    @Published var chats = [Chat]()
     
     @Published var errorMessage = ""
     
@@ -87,7 +88,9 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchChats() async {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("didn't fetch chats")
+            return }
 //        self.firestore.collection("users").document(uid).collection("chats").getDocuments { (snapshot, error) in
 //
 //            guard let snapshot = snapshot, error == nil else {
@@ -116,7 +119,8 @@ class AuthViewModel: ObservableObject {
                     let data = change.document.data()
                     let chatId = data["chatId"] as? String
                     let day = data["day"] as? Date
-                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
+//                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
+                    self.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
                 }
             })
             
@@ -124,7 +128,7 @@ class AuthViewModel: ObservableObject {
 
         }
         
-        for chat in self.currentUser?.chats ?? [] {
+        for chat in self.chats {
             let chatId = chat.id
             self.firestore.collection("users")
                 .document(uid).collection("chats")
