@@ -16,7 +16,7 @@ struct ChatBotView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
-    @EnvironmentObject var chat: Chat
+//    @EnvironmentObject var chat: Chat
     
     @State var chatId = "0"
     

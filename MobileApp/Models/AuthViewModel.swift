@@ -15,7 +15,7 @@ import FirebaseFirestoreSwift
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User? //tells us whether user is logged in
     @Published var currentUser: User?
-    @Published var chats = [Chat]()
+    @Published var chats = [String : Chat]()
     
     @Published var errorMessage = ""
     
@@ -64,7 +64,7 @@ class AuthViewModel: ObservableObject {
             try Auth.auth().signOut() //signs user out on backend
             self.userSession = nil //wipes out user session and takes us ack to login screen
             self.currentUser = nil
-            self.chats = []
+            self.chats = [:]
         } catch {
             print("DEBUG: Failed to sign out with error \(error.localizedDescription)")
         }
@@ -110,7 +110,7 @@ class AuthViewModel: ObservableObject {
                     let chatId = data["chatId"] as? String
                     let day = data["day"] as? Timestamp
 //                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
-                    self.chats.append(Chat(id: chatId ?? "0", day: day?.dateValue() ?? Date.now))
+                    self.chats[chatId ?? "0"] = Chat(id: chatId ?? "0", day: day?.dateValue() ?? Date.now)
 //                    print(day)
                 }
             })
@@ -119,8 +119,8 @@ class AuthViewModel: ObservableObject {
 
         }
         
-        for chat in self.chats {
-            let chatId = chat.id
+        for (chatId, chat) in self.chats {
+//            let chatId = chat.id
             self.firestore.collection("users")
                 .document(uid).collection("chats")
                 .document(chatId).collection("messages")
@@ -132,25 +132,18 @@ class AuthViewModel: ObservableObject {
                         return
                     }
                     
-//                    querySnapshot?.documentChanges.forEach({ change in
-//                        if change.type == .added {
-//                            let data = change.document.data()
-//                            let text = data["text"] as? String
-//                            chat.messages.append(text ?? "")
-//                        }
-//                    })
-                    
                     querySnapshot?.documents.forEach({ queryDocumentSnapshot in
                         let data = queryDocumentSnapshot.data()
                         let text = data["text"] as? String
                         chat.messages.append(text ?? "")
+//                        print(text)
                     })
                 
  
             }
         }
         
-        print(self.chats.count)
+//        print(self.chats)
     }
     
 }

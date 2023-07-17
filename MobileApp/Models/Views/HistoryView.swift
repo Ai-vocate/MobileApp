@@ -25,12 +25,12 @@ struct HistoryView: View {
                     ScrollView {
                         if let user = viewModel.currentUser {
                             let chats = viewModel.chats
-                            ForEach(chats, id: \.id) { chat in
+                            ForEach(Array(chats.keys), id: \.self) { key in
                                 NavigationLink {
                                 
-                                    ChatBotView()
+                                    ChatBotView(models: chats[key]?.messages ?? [], chatId: key)
                                 } label: {
-                                    HistoryRow(date: chat.day.formatted(date: .abbreviated, time: .omitted ) , topic: "Immigration")
+                                    HistoryRow(date: chats[key]?.day.formatted(date: .abbreviated, time: .omitted ) ?? "0" , topic: "Immigration")
                                         .padding(.vertical, 2.0)
                                         .padding(.horizontal, 37.5)
                                 }
