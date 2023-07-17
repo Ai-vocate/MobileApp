@@ -69,8 +69,11 @@ struct ChatBotView: View {
                 .onAppear {
                     APIviewModel.setup()
                     models.removeAll()
+                    initializeModels()
+                    print(viewModel.chats[chatId]?.messages)
                 }
             }
+            
         } else {
             let user = User(id: NSUUID().uuidString, fullname: "Ai Vocate", email: "example@gmail.com", age: 1)
             
@@ -115,6 +118,11 @@ struct ChatBotView: View {
         }
         
     }
+    
+    func initializeModels() {
+        self.models = viewModel.chats[chatId]?.messages ?? []
+    }
+        
     
     
     func initalsView(user: User) -> some View {
