@@ -118,9 +118,12 @@ class AuthViewModel: ObservableObject {
             
 
         }
-        
+        print(self.chats.count)
+        //self.chats.count is 0 even though the chats show up in history
+        //for some reason, not entering this next for loop
         for (chatId, chat) in self.chats {
 //            let chatId = chat.id
+            print("here")
             self.firestore.collection("users")
                 .document(uid).collection("chats")
                 .document(chatId).collection("messages")
