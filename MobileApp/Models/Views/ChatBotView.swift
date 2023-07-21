@@ -70,7 +70,8 @@ struct ChatBotView: View {
                     APIviewModel.setup()
 //                    models.removeAll()
 //                    initializeModels()
-                    print(viewModel.chats[chatId]?.messages)
+                    initializeChatId()
+//                    print(viewModel.chats[chatId]?.messages)
                 }
             }
             
@@ -122,6 +123,12 @@ struct ChatBotView: View {
     func initializeModels() {
         self.models = viewModel.chats[chatId]?.messages ?? []
     }
+    
+    func initializeChatId() {
+        if models.count == 0 {
+            self.chatId = NSUUID().uuidString
+        }
+    }
         
     
     
@@ -157,13 +164,13 @@ struct ChatBotView: View {
     
     func saveMessage(message: String, isUser: Bool) {
 
-        if models.count == 1 {
-            //initialize new chat for the user
-            self.chatId = NSUUID().uuidString
-//            viewModel.currentUser?.createChat(id: chatId)
-//            chat = 
-            
-        }
+//        if models.count == 1 {
+//            //initialize new chat for the user
+//            self.chatId = NSUUID().uuidString
+////            viewModel.currentUser?.createChat(id: chatId)
+////            chat =
+//
+//        }
         //add message to user chat
 //        viewModel.currentUser?.chats[0].messages.append(message)
         

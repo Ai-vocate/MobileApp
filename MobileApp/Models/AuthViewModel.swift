@@ -125,10 +125,13 @@ class AuthViewModel: ObservableObject {
                                 return
                             }
                             
-                            querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-                                let data = queryDocumentSnapshot.data()
-                                let text = data["text"] as? String
-                                self.chats[chatId ?? "0"]?.messages.append(text ?? "")
+                            querySnapshot?.documentChanges.forEach({ change in
+                                if change.type == .added {
+                                    let data = change.document.data()
+                                    let text = data["text"] as? String
+                                    self.chats[chatId ?? "0"]?.messages.append(text ?? "")
+                                }
+                                
         //                        print(text)
                             })
                         

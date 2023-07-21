@@ -13,6 +13,7 @@ struct HistoryView: View {
    
     @State var chatId: String
     
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -28,7 +29,7 @@ struct HistoryView: View {
                             let chats = viewModel.chats
                             ForEach(Array(chats.keys), id: \.self) { key in
                                 NavigationLink {
-                                
+                                    
                                     ChatBotView(models: chats[key]?.messages ?? [], chatId: key)
                                 } label: {
                                     HistoryRow(date: chats[key]?.day.formatted(date: .abbreviated, time: .omitted ) ?? "0" , topic: "Immigration")
@@ -37,6 +38,7 @@ struct HistoryView: View {
                                 }
                                 .onTapGesture {
                                     self.chatId = key
+                                    
                                 }
                             }
                         } else {
@@ -62,6 +64,7 @@ struct HistoryView: View {
 }
 
 struct HistoryView_Previews: PreviewProvider {
+
     static var previews: some View {
         HistoryView(chatId: "0")
     }

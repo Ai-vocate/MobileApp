@@ -10,7 +10,7 @@ import SwiftUI
 struct LandingView: View {
     
 //    @EnvironmentObject var viewModel: AuthViewModel
-    @State private var selectedTab = "house"
+    @State var selectedTab = "house"
     
     var body: some View {
         TabView (selection: $selectedTab) {
