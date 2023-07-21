@@ -151,20 +151,20 @@ class AuthViewModel: ObservableObject {
 //                .document(chatId).collection("messages")
 //                .order(by: "timestamp")
 //                .addSnapshotListener { querySnapshot, error in
-// 
+//
 //                    if let error = error {
 //                        print("DEBUG: Failed to listen for messages: \(error)")
 //                        return
 //                    }
-//                    
+//
 //                    querySnapshot?.documents.forEach({ queryDocumentSnapshot in
 //                        let data = queryDocumentSnapshot.data()
 //                        let text = data["text"] as? String
 //                        chat.messages.append(text ?? "")
 ////                        print(text)
 //                    })
-//                
-// 
+//
+//
 //            }
 //        }
         
