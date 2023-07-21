@@ -111,40 +111,62 @@ class AuthViewModel: ObservableObject {
                     let day = data["day"] as? Timestamp
 //                    self.currentUser?.chats.append(Chat(id: chatId ?? "0", day: day ?? Date.now))
                     self.chats[chatId ?? "0"] = Chat(id: chatId ?? "0", day: day?.dateValue() ?? Date.now)
-//                    print(day)
+                    print(self.chats.count)
+                    
+                    
+                    self.firestore.collection("users")
+                        .document(uid).collection("chats")
+                        .document(chatId ?? "0").collection("messages")
+                        .order(by: "timestamp")
+                        .addSnapshotListener { querySnapshot, error in
+         
+                            if let error = error {
+                                print("DEBUG: Failed to listen for messages: \(error)")
+                                return
+                            }
+                            
+                            querySnapshot?.documents.forEach({ queryDocumentSnapshot in
+                                let data = queryDocumentSnapshot.data()
+                                let text = data["text"] as? String
+                                self.chats[chatId ?? "0"]?.messages.append(text ?? "")
+        //                        print(text)
+                            })
+                        
+         
+                    }
                 }
             })
             
             
 
         }
-        print(self.chats.count)
+        print("chats count: \(self.chats.count)")
         //self.chats.count is 0 even though the chats show up in history
         //for some reason, not entering this next for loop
-        for (chatId, chat) in self.chats {
-//            let chatId = chat.id
-            print("here")
-            self.firestore.collection("users")
-                .document(uid).collection("chats")
-                .document(chatId).collection("messages")
-                .order(by: "timestamp")
-                .addSnapshotListener { querySnapshot, error in
- 
-                    if let error = error {
-                        print("DEBUG: Failed to listen for messages: \(error)")
-                        return
-                    }
-                    
-                    querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-                        let data = queryDocumentSnapshot.data()
-                        let text = data["text"] as? String
-                        chat.messages.append(text ?? "")
-//                        print(text)
-                    })
-                
- 
-            }
-        }
+//        for (chatId, chat) in self.chats {
+////            let chatId = chat.id
+//            print("here")
+//            self.firestore.collection("users")
+//                .document(uid).collection("chats")
+//                .document(chatId).collection("messages")
+//                .order(by: "timestamp")
+//                .addSnapshotListener { querySnapshot, error in
+// 
+//                    if let error = error {
+//                        print("DEBUG: Failed to listen for messages: \(error)")
+//                        return
+//                    }
+//                    
+//                    querySnapshot?.documents.forEach({ queryDocumentSnapshot in
+//                        let data = queryDocumentSnapshot.data()
+//                        let text = data["text"] as? String
+//                        chat.messages.append(text ?? "")
+////                        print(text)
+//                    })
+//                
+// 
+//            }
+//        }
         
 //        print(self.chats)
     }

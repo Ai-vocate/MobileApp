@@ -68,8 +68,8 @@ struct ChatBotView: View {
                 }
                 .onAppear {
                     APIviewModel.setup()
-                    models.removeAll()
-                    initializeModels()
+//                    models.removeAll()
+//                    initializeModels()
                     print(viewModel.chats[chatId]?.messages)
                 }
             }

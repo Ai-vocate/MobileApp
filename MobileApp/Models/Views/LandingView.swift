@@ -18,7 +18,7 @@ struct LandingView: View {
                 .tag("house")
             FaqView()
                 .tag("questionmark.circle")
-            ChatBotView()
+            ChatBotView(models: [])
                 .tag("bubble.left.and.bubble.right")
             HistoryView(chatId: "0")
                 .tag("clock.arrow.circlepath")
