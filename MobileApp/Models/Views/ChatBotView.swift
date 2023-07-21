@@ -19,7 +19,7 @@ struct ChatBotView: View {
 //    @EnvironmentObject var chat: Chat
     
     @State var chatId = "0"
-    
+
     
     // This is temporary. Need to get user info from database.
     
@@ -41,7 +41,7 @@ struct ChatBotView: View {
                 VStack(alignment: .leading) {
                     LogoHeader()
                     
-                    
+                    Text(chatId)
                     ForEach(models, id: \.self) { string in
                         HStack(alignment: .top) {
 //                            Text(string)

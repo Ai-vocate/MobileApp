@@ -20,7 +20,7 @@ struct LandingView: View {
                 .tag("questionmark.circle")
             ChatBotView()
                 .tag("bubble.left.and.bubble.right")
-            HistoryView()
+            HistoryView(chatId: "0")
                 .tag("clock.arrow.circlepath")
 //                .onTapGesture {
 //                    Task {

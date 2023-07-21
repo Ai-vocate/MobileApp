@@ -11,6 +11,7 @@ struct HistoryView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
    
+    @State var chatId: String
     
     var body: some View {
         NavigationStack {
@@ -33,6 +34,9 @@ struct HistoryView: View {
                                     HistoryRow(date: chats[key]?.day.formatted(date: .abbreviated, time: .omitted ) ?? "0" , topic: "Immigration")
                                         .padding(.vertical, 2.0)
                                         .padding(.horizontal, 37.5)
+                                }
+                                .onTapGesture {
+                                    self.chatId = key
                                 }
                             }
                         } else {
@@ -59,6 +63,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView(chatId: "0")
     }
 }
