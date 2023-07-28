@@ -45,30 +45,45 @@ struct ChatBotView: View {
     var body: some View {
         
         if let user = viewModel.currentUser {
-            ScrollView {
+            
+            ZStack {
+                Color.bg_green
+                    .ignoresSafeArea()
                 ZStack {
-                    Color.bg_green
-                        .ignoresSafeArea()
                     
-                    VStack(alignment: .leading) {
-                        LogoHeader()
-                        
-                        Text(chatId)
-                        ForEach(chatvm.chatMessages) { chatMessage in
-                            let string = chatMessage.text
-                            HStack(alignment: .top) {
-    //                            Text(string)
-                                if string.contains("Me:") {
-                                    Spacer()
-                                    MessageView(message: string)
-                                    initalsView(user: user)
-                                } else {
-                                    initalsView(user: aiUser)
-                                    MessageView(message: string)
-                                    Spacer()
-                                }
-                            }.padding(.horizontal)
+                    
+                    ScrollView {
+                        VStack(alignment: .leading) {
+                            LogoHeader()
+                            
+                            Text(chatId)
+                            ForEach(chatvm.chatMessages) { chatMessage in
+                                let string = chatMessage.text
+                                HStack(alignment: .top) {
+        //                            Text(string)
+                                    if string.contains("Me:") {
+                                        Spacer()
+                                        MessageView(message: string)
+                                        initalsView(user: user)
+                                    } else {
+                                        initalsView(user: aiUser)
+                                        MessageView(message: string)
+                                        Spacer()
+                                    }
+                                }.padding(.horizontal)
+                            }
+                            
                         }
+                        .onAppear {
+                            APIviewModel.setup()
+        //                    chatvm.chatMessages.removeAll()
+                            initializeModels()
+        //                    initializeChatId()
+        //                    print(viewModel.chats[chatId]?.messages)
+                        }
+                    }
+                    
+                    VStack {
                         Spacer()
                         
                         HStack {
@@ -79,17 +94,12 @@ struct ChatBotView: View {
                         }.padding(.all)
                         Spacer().frame(height: 38.0) // Spacer for Tab Bar
                     }
-                    .onAppear {
-                        APIviewModel.setup()
-    //                    chatvm.chatMessages.removeAll()
-                        initializeModels()
-    //                    initializeChatId()
-    //                    print(viewModel.chats[chatId]?.messages)
-                    }
-                    
                 }
+                    
+                
+                
+                
             }
-            
             
         } else {
             let user = User(id: NSUUID().uuidString, fullname: "Ai Vocate", email: "example@gmail.com", age: 1)
