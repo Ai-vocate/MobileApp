@@ -50,17 +50,7 @@ struct ChatBotView: View {
                 Color.bg_green
                     .ignoresSafeArea()
                 ZStack {
-                    VStack {
-                        Spacer()
-                        
-                        HStack {
-                            TextField("Type here...", text: $text)
-                            Button("Send") {
-                                send()
-                            }
-                        }.padding(.all)
-                        Spacer().frame(height: 38.0) // Spacer for Tab Bar
-                    }
+                    
                     
                     ScrollView {
                         VStack(alignment: .leading) {
@@ -91,6 +81,17 @@ struct ChatBotView: View {
         //                    initializeChatId()
         //                    print(viewModel.chats[chatId]?.messages)
                         }
+                    }
+                    VStack {
+                        Spacer()
+                        
+                        HStack {
+                            TextField("Type here...", text: $text)
+                            Button("Send") {
+                                send()
+                            }
+                        }.padding(.all)
+                        Spacer().frame(height: 38.0) // Spacer for Tab Bar
                     }
                 }
                     

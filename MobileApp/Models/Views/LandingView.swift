@@ -18,7 +18,7 @@ struct LandingView: View {
                 .tag("house")
             FaqView()
                 .tag("questionmark.circle")
-            ChatBotView(chatId: "")
+            ChatBotView(chatId: UUID().uuidString)
                 .tag("bubble.left.and.bubble.right")
                 .onTapGesture {
                     Task {
