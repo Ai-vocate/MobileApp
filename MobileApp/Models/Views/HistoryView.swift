@@ -30,7 +30,7 @@ struct HistoryView: View {
                             ForEach(Array(chats.keys), id: \.self) { key in
                                 NavigationLink {
                                     
-                                    ChatBotView(models: chats[key]?.messages ?? [], chatId: key)
+                                    ChatBotView(chatId: key)
                                 } label: {
                                     HistoryRow(date: chats[key]?.day.formatted(date: .abbreviated, time: .omitted ) ?? "0" , topic: "Immigration")
                                         .padding(.vertical, 2.0)
@@ -46,7 +46,7 @@ struct HistoryView: View {
                             ForEach(0 ..< 15) { item in
                                 NavigationLink {
                                     // TODO: Replace this with a chatbot view that contains chat history
-                                    ChatBotView()
+                                    ChatBotView(chatId: "")
                                 } label: {
                                     HistoryRow(date: "01/12", topic: "Immigration")
                                         .padding(.vertical, 2.0)

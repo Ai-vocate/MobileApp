@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 @MainActor
 
 class AuthViewModel: ObservableObject {
+    
     @Published var userSession: FirebaseAuth.User? //tells us whether user is logged in
     @Published var currentUser: User?
     @Published var chats = [String : Chat]()
@@ -20,6 +21,8 @@ class AuthViewModel: ObservableObject {
     @Published var errorMessage = ""
     
     let firestore: Firestore
+    let auth: Auth
+    static let shared = AuthViewModel()
     
     
     init() {
@@ -27,6 +30,7 @@ class AuthViewModel: ObservableObject {
         
         self.firestore = Firestore.firestore()
         
+        self.auth = Auth.auth()
         Task {
             await fetchUser()
         }
@@ -114,29 +118,29 @@ class AuthViewModel: ObservableObject {
                     print(self.chats.count)
                     
                     
-                    self.firestore.collection("users")
-                        .document(uid).collection("chats")
-                        .document(chatId ?? "0").collection("messages")
-                        .order(by: "timestamp")
-                        .addSnapshotListener { querySnapshot, error in
-         
-                            if let error = error {
-                                print("DEBUG: Failed to listen for messages: \(error)")
-                                return
-                            }
-                            
-                            querySnapshot?.documentChanges.forEach({ change in
-                                if change.type == .added {
-                                    let data = change.document.data()
-                                    let text = data["text"] as? String
-                                    self.chats[chatId ?? "0"]?.messages.append(text ?? "")
-                                }
-                                
-        //                        print(text)
-                            })
-                        
-         
-                    }
+//                    self.firestore.collection("users")
+//                        .document(uid).collection("chats")
+//                        .document(chatId ?? "0").collection("messages")
+//                        .order(by: "timestamp")
+//                        .addSnapshotListener { querySnapshot, error in
+//
+//                            if let error = error {
+//                                print("DEBUG: Failed to listen for messages: \(error)")
+//                                return
+//                            }
+//
+//                            querySnapshot?.documentChanges.forEach({ change in
+//                                if change.type == .added {
+//                                    let data = change.document.data()
+//                                    let text = data["text"] as? String
+//                                    self.chats[chatId ?? "0"]?.messages.append(text ?? "")
+//                                }
+//
+//        //                        print(text)
+//                            })
+//
+//
+//                    }
                 }
             })
             

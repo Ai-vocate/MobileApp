@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D0B9BFE2A57FE31008AF382 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B9BFD2A57FE31008AF382 /* Chat.swift */; };
 		2D81DF722A72807E001B1C9B /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81DF712A72807E001B1C9B /* ChatLogViewModel.swift */; };
+		2D81DF742A735C26001B1C9B /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D81DF732A735C26001B1C9B /* ChatMessage.swift */; };
 		2D9F0F302A3474AD000E1A5A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F0F2F2A3474AD000E1A5A /* HomeView.swift */; };
 		2D9F0F322A3865D5000E1A5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D9F0F312A3865D5000E1A5A /* GoogleService-Info.plist */; };
 		2D9F0F352A3867F4000E1A5A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2D9F0F342A3867F4000E1A5A /* FirebaseAnalytics */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		2D0B9BFD2A57FE31008AF382 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		2D81DF712A72807E001B1C9B /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
+		2D81DF732A735C26001B1C9B /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		2D9F0F2F2A3474AD000E1A5A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2D9F0F312A3865D5000E1A5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2D9F0F3F2A387D66000E1A5A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				2D9F0F3F2A387D66000E1A5A /* AuthViewModel.swift */,
 				2D81DF712A72807E001B1C9B /* ChatLogViewModel.swift */,
 				40EE9ED12A2EA1270053C75C /* Views */,
+				2D81DF732A735C26001B1C9B /* ChatMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				2D9F0F402A387D66000E1A5A /* AuthViewModel.swift in Sources */,
 				40EE9ECE2A2EA0A50053C75C /* BackGroundRoundedRectangle.swift in Sources */,
 				40EE9ECA2A2E9A190053C75C /* InputView.swift in Sources */,
+				2D81DF742A735C26001B1C9B /* ChatMessage.swift in Sources */,
 				2D9F0F492A47AFF0000E1A5A /* LogoHeader.swift in Sources */,
 				3A125B5B2A433B8500D8A4D4 /* LandingView.swift in Sources */,
 				2DE7BCE02A3054B800E470A3 /* User.swift in Sources */,
