@@ -18,9 +18,13 @@ struct LandingView: View {
                 .tag("house")
             FaqView()
                 .tag("questionmark.circle")
-            ChatBotView(chatId: UUID().uuidString)
+            ChatBotView(chatId: "")
                 .tag("bubble.left.and.bubble.right")
-                
+                .onTapGesture {
+                    Task {
+                        
+                    }
+                }
             HistoryView(chatId: "0")
                 .tag("clock.arrow.circlepath")
 //                .onTapGesture {
