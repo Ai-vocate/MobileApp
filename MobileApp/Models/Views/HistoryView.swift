@@ -21,7 +21,21 @@ struct HistoryView: View {
                 BackgroundShapeView().shadow(radius: 2, x: 0, y: -3)
                 
                 VStack {
-                    LogoHeader()
+//                    LogoHeader()
+                    HStack {
+                        Text("Conversations")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .padding()
+                        Spacer()
+                        NavigationLink {
+                            ChatBotView(chatId: UUID().uuidString)
+                        } label: {
+                            Text("New")
+                        }
+                        .padding()
+                    }
+                        
                     Spacer()
                     
                     ScrollView {

@@ -50,8 +50,6 @@ struct ChatBotView: View {
                 Color.bg_green
                     .ignoresSafeArea()
                 ZStack {
-                    
-                    
                     ScrollView {
                         VStack(alignment: .leading) {
                             LogoHeader()
@@ -82,18 +80,23 @@ struct ChatBotView: View {
         //                    print(viewModel.chats[chatId]?.messages)
                         }
                     }
+                    
                     VStack {
                         Spacer()
                         
-                        HStack {
+                        HStack(alignment: .top) {
                             TextField("Type here...", text: $text)
                             Button("Send") {
                                 send()
                             }
                         }.padding(.all)
-                        Spacer().frame(height: 38.0) // Spacer for Tab Bar
+                            .frame(height: 80)
+                            .background(Color.bg_green)
+//                        Spacer().frame(height: 38.0) // Spacer for Tab Bar
                     }
+                    
                 }
+                
                     
                 
                 

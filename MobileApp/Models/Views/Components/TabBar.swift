@@ -13,8 +13,8 @@
 
 
 import SwiftUI
-
-let tabBarItems = ["house", "questionmark.circle", "bubble.left.and.bubble.right", "clock.arrow.circlepath"]
+//, "bubble.left.and.bubble.right"
+let tabBarItems = ["house", "questionmark.circle", "clock.arrow.circlepath"]
 
 
 struct TabBar: View {
