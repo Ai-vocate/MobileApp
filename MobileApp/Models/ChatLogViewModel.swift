@@ -24,17 +24,19 @@ class ChatLogViewModel : ObservableObject {
     
     private func fetchMessages() {
         guard let uid = AuthViewModel.shared.auth.currentUser?.uid else { return }
-        guard let chatId = chatId else { return }
+//        guard let chatId = chatId else {
+//            print("failed to fetch messages...chatId")
+//            return }
         if chatId == "" {
             print("failed to fetch messages")
             return
             
         }
-        print("here")
+//        print("here")
         
         AuthViewModel.shared.firestore
             .collection("users")
-            .document(uid).collection(chatId)
+            .document(uid).collection(chatId ?? "")
             .order(by: "timestamp")
             .addSnapshotListener { querySnapshot, error in
 

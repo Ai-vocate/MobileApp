@@ -29,6 +29,7 @@ struct ChatBotView: View {
         }
         
         self.chatvm = .init(chatId: chatId)
+//        print(chatId)
     }
     @ObservedObject var chatvm: ChatLogViewModel
     
@@ -58,7 +59,7 @@ struct ChatBotView: View {
                             ForEach(chatvm.chatMessages) { chatMessage in
                                 let string = chatMessage.text
                                 HStack(alignment: .top) {
-        //                            Text(string)
+//                                    Text(string)
                                     if string.contains("Me:") {
                                         Spacer()
                                         MessageView(message: string)
@@ -72,13 +73,7 @@ struct ChatBotView: View {
                             }
                             
                         }
-                        .onAppear {
-                            APIviewModel.setup()
-        //                    chatvm.chatMessages.removeAll()
-                            initializeModels()
-        //                    initializeChatId()
-        //                    print(viewModel.chats[chatId]?.messages)
-                        }
+                        
                     }
                     
                     VStack {
@@ -95,6 +90,13 @@ struct ChatBotView: View {
 //                        Spacer().frame(height: 38.0) // Spacer for Tab Bar
                     }
                     
+                }
+                .onAppear {
+                    APIviewModel.setup()
+//                    chatvm.chatMessages.removeAll()
+                    initializeModels()
+//                    initializeChatId()
+//                    print(viewModel.chats[chatId]?.messages)
                 }
                 
                     
@@ -151,7 +153,7 @@ struct ChatBotView: View {
     
     func initializeModels() {
 //        self.models = viewModel.chats[chatId]?.messages ?? []
-        print(chatId)
+        print(self.chatvm.chatId)
     }
     
 //    func initializeChatId() {
@@ -179,7 +181,7 @@ struct ChatBotView: View {
         }
         
 //        models.append("Me: \(text)")
-        // Add history + text to viewModel.send;
+        
         saveMessage(message: "Me: \(text)", isUser: true)
         APIviewModel.send(text: text) { response in
             DispatchQueue.main.async {
@@ -193,6 +195,7 @@ struct ChatBotView: View {
     }
     
     func saveMessage(message: String, isUser: Bool) {
+        print(self.chatId)
 
 //        if models.count == 1 {
 //            //initialize new chat for the user

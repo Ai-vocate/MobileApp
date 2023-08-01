@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
 
 struct HistoryView: View {
     
@@ -28,12 +30,22 @@ struct HistoryView: View {
                             .fontWeight(.semibold)
                             .padding()
                         Spacer()
-                        NavigationLink {
-                            ChatBotView(chatId: UUID().uuidString)
-                        } label: {
-                            Text("New")
+                        if let user = viewModel.currentUser {
+                            NavigationLink {
+                                ChatBotView(chatId: self.chatId)
+                            } label: {
+                                Text("New")
+                            }
+//                            .simultaneousGesture(TapGesture.)
+                            .onTapGesture {
+    //                            await
+//                                chatId = UUID().uuidString
+                                newChat(chatId: self.chatId)
+                            }
+                            .padding()
                         }
-                        .padding()
+                        
+                        
                     }
                         
                     Spacer()
@@ -74,8 +86,38 @@ struct HistoryView: View {
                 }
             }
         }
+        .onAppear {
+            chatId = UUID().uuidString
+        }
+    }
+    
+    
+    
+    func newChat(chatId: String) {
+        guard let fromId = viewModel.userSession?.uid else { return }
+    //            guard let toId = aiUser.uid else { return }
+    //        }
+       
+        
+        //save chat data
+        let documentchat = viewModel.firestore.collection("users")
+            .document(fromId)
+            .collection("chats")
+            .document(chatId)
+        
+        let chatData = ["chatId": chatId, "day": Timestamp()] as [String : Any]
+        documentchat.setData(chatData) { error in
+            if let error = error {
+                print(error)
+                print("DEBUG: failed to save chat to Firebase")
+            }
+             
+        }
     }
 }
+
+
+
 
 struct HistoryView_Previews: PreviewProvider {
 

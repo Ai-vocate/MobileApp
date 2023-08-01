@@ -152,8 +152,8 @@
 				4090B3C52A32A7DC001443FA /* APICaller.swift */,
 				2D9F0F3F2A387D66000E1A5A /* AuthViewModel.swift */,
 				2D81DF712A72807E001B1C9B /* ChatLogViewModel.swift */,
-				40EE9ED12A2EA1270053C75C /* Views */,
 				2D81DF732A735C26001B1C9B /* ChatMessage.swift */,
+				40EE9ED12A2EA1270053C75C /* Views */,
 			);
 			path = Models;
 			sourceTree = "<group>";
